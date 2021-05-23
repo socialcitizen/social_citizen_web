@@ -5,6 +5,7 @@ import 'package:social_citizen_web/pages/account.dart';
 import 'package:social_citizen_web/pages/admin.dart';
 import 'package:social_citizen_web/pages/e_government_portal.dart';
 import 'package:social_citizen_web/pages/home.dart';
+import 'package:social_citizen_web/pages/intro_page.dart';
 import 'package:social_citizen_web/pages/job_search.dart';
 import 'package:social_citizen_web/pages/login.dart';
 import 'package:social_citizen_web/pages/make_transaction.dart';
@@ -46,8 +47,8 @@ class MyApp extends StatelessWidget {
       theme: theme,
       initialRoute: '/',
       routes: {
-        '/' : (context) => LoginPage(),
-        // '/': (context) => MyHomeScreen(),        
+        // '/' : (context) => LoginPage(),
+        '/': (context) => IntroPage(),        
         '/signup': (context) => SignUpPage(),
         '/jobsearch': (context) => JobSearchPage(),
         '/cug': (context) => CUGGroupPage(),

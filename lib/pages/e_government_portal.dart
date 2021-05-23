@@ -32,9 +32,7 @@ class _EGovernmentPortalState extends State<EGovernmentPortal> {
              SizedBox(
                   height: size.height * 0.06,
               ),
-              SizedBox(
-                  height: size.height * 0.06,
-              ),
+              
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
