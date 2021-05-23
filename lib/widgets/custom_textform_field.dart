@@ -9,6 +9,9 @@ class CustomTextField extends StatelessWidget {
   // final bool expands;
   // final FormFieldSetter<String> onSaved;
   // final FormFieldValidator<String> validator;
+  final double width;
+  final Function onChanged;
+  final Function validator;
 
   CustomTextField(
     {
@@ -19,17 +22,20 @@ class CustomTextField extends StatelessWidget {
       this.maxLines,
       // this.expands, 
       // this.onSaved,
-      // this.validator            
+      // this.validator          
+      this.width,
+      this.onChanged,
+      this.validator
     });
   
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    // Size size = MediaQuery.of(context).size;
     // return Padding(
     //   padding: const EdgeInsets.fromLTRB(150.0, 5.0, 150.0, 5.0),
     //   child:  
       return Container(
-        width: size.width * 0.5,
+        width: width,
         padding: EdgeInsets.only(bottom: 10.0),
         child: TextFormField(          
           keyboardType: keyboardType, 
@@ -37,7 +43,7 @@ class CustomTextField extends StatelessWidget {
           // validator: validator,
           maxLines: maxLines,
           // expands: true,          
-         decoration: InputDecoration(
+          decoration: InputDecoration(
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(25.0),
             ),
@@ -45,7 +51,8 @@ class CustomTextField extends StatelessWidget {
             prefixIcon: icon,
             hintText: hintText,
           ),
-
+          onChanged: onChanged,
+          validator: validator,
         ),
       );
     // );

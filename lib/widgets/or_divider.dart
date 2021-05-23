@@ -8,11 +8,11 @@ class OrDivider extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     Expanded buildDivider() {
       return Expanded(
-            child: Divider(
-              color: Theme.of(context).accentColor,
-              height: 1.5
-            ),
-          ); 
+        child: Divider(
+          color: Theme.of(context).accentColor,
+          height: 1.5
+        ),
+      ); 
     }
     return Container(
       width: size.width * 0.4,

@@ -5,6 +5,7 @@ import 'package:social_citizen_web/pages/account.dart';
 import 'package:social_citizen_web/pages/admin.dart';
 import 'package:social_citizen_web/pages/e_government_portal.dart';
 import 'package:social_citizen_web/pages/home.dart';
+import 'package:social_citizen_web/pages/intro.dart';
 import 'package:social_citizen_web/pages/job_search.dart';
 import 'package:social_citizen_web/pages/login.dart';
 import 'package:social_citizen_web/pages/make_transaction.dart';
@@ -46,7 +47,8 @@ class MyApp extends StatelessWidget {
       theme: theme,
       initialRoute: '/',
       routes: {
-        '/' : (context) => LoginPage(),
+        '/' : (context) => IntroPage(),
+        // '/' : (context) => LoginPage(),
         // '/': (context) => MyHomeScreen(),        
         '/signup': (context) => SignUpPage(),
         '/jobsearch': (context) => JobSearchPage(),
@@ -63,7 +65,7 @@ class MyApp extends StatelessWidget {
         '/eportal': (context) => EGovernmentPortal(),
         '/home': (context) => MyHomeScreen(),
       },
-      // home: MyHomePage(title: 'Flutter Demo Home Page'),
+      // home: MySplashPage(title: 'Flutter Demo Home Page'),
     );
   }
 }
