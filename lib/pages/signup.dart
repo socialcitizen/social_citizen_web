@@ -25,7 +25,7 @@ class SignUpPage extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 15.0),
-                child: Image.asset('assets/images/arms.png', width: size.width * 0.15),
+                child: Image.asset('assets/images/edo-coat.jpg', width: size.width * 0.15),
               ),
               CustomTextField(
                 hintText: 'First Name',
@@ -62,6 +62,9 @@ class SignUpPage extends StatelessWidget {
               ),
               AlreadyHaveAnAccountCheck(
                 login: false,
+                press: () {
+                  Navigator.pushNamed(context, '/login');
+                },
               ),
               OrDivider(),
               Row(

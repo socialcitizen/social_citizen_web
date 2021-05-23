@@ -25,7 +25,7 @@ class LoginPage extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 15.0),
-                child: Image.asset('assets/images/arms.png', width: size.width * 0.15),
+                child: Image.asset('assets/images/edo-coat.jpg', width: size.width * 0.15),
               ),              
               CustomTextField(
                 hintText: 'Email',
@@ -56,6 +56,16 @@ class LoginPage extends StatelessWidget {
                   Navigator.pushNamed(context, '/signup');
                 },
               ),
+              SizedBox(
+              height: size.height * 0.03,
+              ),
+              Text(
+              'Forgot password?',
+              style: TextStyle(
+                color:Theme.of(context).accentColor,
+                fontWeight: FontWeight.bold
+                ),
+            ),
               OrDivider(),
               Row(
               mainAxisAlignment: MainAxisAlignment.center,

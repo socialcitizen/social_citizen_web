@@ -46,9 +46,9 @@ class MyApp extends StatelessWidget {
       title: 'Social Citizen',
       theme: theme,
       initialRoute: '/',
-      routes: {
-        // '/' : (context) => LoginPage(),
-        '/': (context) => IntroPage(),        
+      routes: {        
+        '/': (context) => IntroPage(),
+        '/login' : (context) => LoginPage(),        
         '/signup': (context) => SignUpPage(),
         '/jobsearch': (context) => JobSearchPage(),
         '/cug': (context) => CUGGroupPage(),
