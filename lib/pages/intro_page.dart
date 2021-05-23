@@ -33,6 +33,7 @@ class _IntroPage extends State<IntroPage> {
       child: Text('This app bridges the communication gap between the Government and citizens of Edo state and promote financial inclusion that guarantee social empowerment and financial services', textAlign: TextAlign.center, style: TextStyle(fontSize: 40.0),),
     )),
     ItemData("assets/images/ring-road.jpg", "Services", Services()),
+
     // ItemData(Colors.deepPurpleAccent, "assets/1.png", "Take a", "Look At", "Liquid Swipe"),
     // ItemData(Colors.green, "assets/1.png", "Liked?", "Fork!", "Give Star!"),
     // ItemData(Colors.yellow, "assets/1.png", "Can be", "Used for", "Onboarding design"),
@@ -81,7 +82,8 @@ class _IntroPage extends State<IntroPage> {
                     constraints: BoxConstraints.expand(),                      
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.1), BlendMode.dstATop),
+                        colorFilter: new ColorFilter.mode(Colors.yellow, BlendMode.dstATop),
+                        // colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.1), BlendMode.dstATop),
                         image: AssetImage(
                         data[index].image),
                         fit: BoxFit.cover,                            
