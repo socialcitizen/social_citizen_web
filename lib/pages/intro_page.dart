@@ -82,8 +82,8 @@ class _IntroPage extends State<IntroPage> {
                     constraints: BoxConstraints.expand(),                      
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        colorFilter: new ColorFilter.mode(Colors.yellow, BlendMode.dstATop),
-                        // colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.1), BlendMode.dstATop),
+                        // colorFilter: new ColorFilter.mode(Colors.yellow, BlendMode.dstATop),
+                        colorFilter: new ColorFilter.mode(Colors.yellow[600].withOpacity(1.0), BlendMode.dstATop),
                         image: AssetImage(
                         data[index].image),
                         fit: BoxFit.cover,                            
@@ -135,9 +135,9 @@ class _IntroPage extends State<IntroPage> {
                   onPressed: () {
                     // liquidController.animateToPage(
                     //     page: data.length - 1, duration: 700);
-                    Navigator.pushNamed(context, '/signup');
+                    Navigator.pushNamed(context, '/login');
                   },
-                  child: Text("Done"),
+                  child: Text("Sign up"),
                   style: ElevatedButton.styleFrom(
                      primary: Color(0xff800000),                    
                      onPrimary: Colors.white,

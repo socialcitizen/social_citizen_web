@@ -49,7 +49,7 @@ class SignUpPage extends StatelessWidget {
                    width: size.width * 0.5,
                    child: CustomElevatedButton(
                     onPressed: (){
-                      Navigator.pushNamed(context, '/onboarding');
+                      Navigator.pushNamed(context, '/home');
                     },
                     text: 'SIGN UP',
                     elevation: 1.0,

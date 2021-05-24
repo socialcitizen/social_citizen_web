@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:social_citizen_web/pages/home.dart';
+import 'package:social_citizen_web/pages/home_old.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:social_citizen_web/widgets/custom_textform_field.dart';
 import 'package:social_citizen_web/widgets/drop_downbutton_form_field.dart';
@@ -29,7 +29,7 @@ class _OnBoardingPage extends State<OnBoardingPage> {
   
 
   List<ItemData> data = [
-    ItemData(Colors.white, "assets/images/welcome.jpg", "We want your experience to be as smooth as possible, kindly supply us your details, we also don't want to be a bother do you can skip this for later", Text('t')),
+    ItemData(Colors.white, "assets/images/welcome.jpg", "We want your experience to be as smooth as possible, kindly supply us your details, we also don't want to be a bother do you can skip this for later", Text('')),
     ItemData(Colors.white, "assets/images/hello.jpg", "Let's get to know you", CustomTextField(
                 hintText: 'First Name',
               ),),
@@ -190,7 +190,7 @@ class _OnBoardingPage extends State<OnBoardingPage> {
                 padding: const EdgeInsets.all(25.0),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/profile');
+                    Navigator.pushNamed(context, '/home');
                   },
                   child: Text("Done"),
                   style: ElevatedButton.styleFrom(

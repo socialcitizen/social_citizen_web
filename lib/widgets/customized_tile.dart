@@ -5,12 +5,14 @@ class CustomizedListTile extends StatelessWidget {
   final Function onTap;
   final String text;
   final IconData icon;
+  final IconData leadingIcon;
   const CustomizedListTile({
     Key key,
     this.color,
     this.onTap,
     this.text,
-    this.icon
+    this.icon,
+    this.leadingIcon,
     }) : super(key: key);
 
   @override
@@ -28,7 +30,11 @@ class CustomizedListTile extends StatelessWidget {
         leading: Icon(
           icon,
           color: Theme.of(context).accentColor,
-          ),
+        ),
+        trailing:Icon(
+          leadingIcon,
+          color: Theme.of(context).accentColor,
+        ),
       ),     
     );
   }

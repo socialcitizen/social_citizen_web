@@ -16,18 +16,70 @@ class MyHomeScreen extends StatefulWidget {
 }
 
 class _MyHomeScreenState extends State<MyHomeScreen> {
-  
-  
   List<String> tileCaptions = ["Marketplaces", "Jobs", "Connect", "Escalate"];
+  List<String> images = [
+    'assets/images/market.jpg',
+    'assets/images/jobs.jpg',
+    'assets/images/market.jpg',
+    'assets/images/jobs.jpg'
+  ];
+
+  final List<Map<String, dynamic>> building = [
+    {
+      'title': 'How to register for NIN',
+      'callToAction': '/postdetails',
+      'image': 'assets/images/market.jpg'
+    },
+    {
+      'title': 'Job opportunities',
+      'callToAction': '/postdetails',
+      'image': 'assets/images/jobs.jpg'
+    },
+    {
+      'title': 'NAFDAC Recruitment',
+      'callToAction': '/postdetails',
+      'image': 'assets/images/market.jpg'
+    },
+    {
+      'title': 'NCDC warns against human cluster',
+      'callToAction': '/postdetails',
+      'image': 'assets/images/jobs.jpg'
+    },
+  ];
+
+  final List<Map<String, dynamic>> ads = [
+    {
+      'title': 'How to register for NIN',
+      'callToAction': '/postdetails',
+      'image': 'assets/images/market.jpg'
+    },
+    {
+      'title': 'Job opportunities',
+      'callToAction': '/postdetails',
+      'image': 'assets/images/jobs.jpg'
+    },
+    {
+      'title': 'NAFDAC Recruitment',
+      'callToAction': '/postdetails',
+      'image': 'assets/images/market.jpg'
+    },
+    {
+      'title': 'NCDC warns against human cluster',
+      'callToAction': '/postdetails',
+      'image': 'assets/images/jobs.jpg'
+    },
+  ];
+
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
   }
+
   @override
-  Widget build (BuildContext context) {
-    Size gMQ = MediaQuery.of(context).size;
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: NavLinks(),
@@ -40,265 +92,134 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
         // backgroundColor: Colors.white
       ),
       backgroundColor: Colors.white,
-       drawer: Drawer(
-         child: MainDrawer(),         
-       ),
-      // Todo: Add your drawer below.
-      // drawer: Theme(
-      //   isMaterialAppTheme: true,
-      //   data: ThemeData(
-      //     canvasColor: Colors.white//gCanvasColor,
-      //   ),
-      //   child: MyDrawer(
-      //     fromLandingScreen: true,
-      //   )
-      // ),
-      // backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Column(                   
-          children: [
-            Align(
-              alignment: Alignment.topCenter,
-              child: FadeIn(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
+      drawer: Drawer(
+        child: MainDrawer(),
+      ),
+      body: Column(
+        children: [
+          Align(
+            alignment: Alignment.topCenter,
+            child: FadeIn(
+              child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
                   // Todo: Your CUG chips here,
-                  child: chipList()
-                  // Placeholder(
-                  //   fallbackHeight: 50.0,
-                  //   color: Colors.black
-                  // ),
-                ),
-              ),
+                  child: chipList()),
             ),
-
-            // Feeds, Tiles & Ads.
-            Flexible(
-              // alignment: Alignment.bottomCenter,
-              child: FadeInUp(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // Todo: use column for Feeds
-                    Expanded(
-                      flex:1,
-                      child: SingleChildScrollView(
-                          child: Column(
-                          children: [
-                            Card(
-                              elevation:2,
-                              // margin: EdgeInsets.all(5.0),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text('Feed 1', style: TextStyle(fontSize:40.0)),
-                              ),
-                            ),
-                            Card(
-                              elevation:2,
-                              // margin: EdgeInsets.all(5.0),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text('Feed 2', style: TextStyle(fontSize:40.0)),
-                              ),
-                            ),
-                            Card(
-                              elevation:2,
-                              // margin: EdgeInsets.all(5.0),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text('Feed 2', style: TextStyle(fontSize:40.0)),
-                              ),
-                            ),
-                            Card(
-                              elevation:2,
-                              // margin: EdgeInsets.all(5.0),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text('Feed 2', style: TextStyle(fontSize:40.0)),
-                              ),
-                            ),
-                            Card(
-                              elevation:2,
-                              // margin: EdgeInsets.all(5.0),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text('Feed 2', style: TextStyle(fontSize:40.0)),
-                              ),
-                            ),
-                            Card(
-                              elevation:2,
-                              // margin: EdgeInsets.all(5.0),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text('Feed 2', style: TextStyle(fontSize:40.0)),
-                              ),
-                            ),
-                            Card(
-                              elevation:2,
-                              // margin: EdgeInsets.all(5.0),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text('Feed 2', style: TextStyle(fontSize:40.0)),
-                              ),
-                            ),
-                            Card(
-                              elevation:2,
-                              // margin: EdgeInsets.all(5.0),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text('Feed 2', style: TextStyle(fontSize:40.0)),
-                              ),
-                            ),
-                            Card(
-                              elevation:2,
-                              // margin: EdgeInsets.all(5.0),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text('Feed 2', style: TextStyle(fontSize:40.0)),
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                      ),
-                    // Tiles.
-                    Container(
-                      // height: gMQ.height * 0.2,
-                      width: gMQ.width * 0.5,
+          ),
+          Flexible(
+            child: FadeInUp(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    flex: 4,
+                    child: Container(
+                      // color: Colors.purple,
                       child: GridView.count(
                         // shrinkWrap: true,
                         // scrollDirection: Axis.vertical,
                         mainAxisSpacing: 0.0,
                         // gMQ.height * 0.003,
-                        crossAxisCount: 2,                  
+                        crossAxisCount: 1,
                         children: List.generate(tileCaptions.length, (index) {
-
                           String caption = tileCaptions[index];
-                          
+
                           return Card(
                             elevation: 2,
-                            color: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16),
-                              side: BorderSide(
-                                color: Colors.black
-                              )
-                            ),
                             child: Material(
                               shape: CircleBorder(),
                               color: Colors.white,
                               child: InkResponse(
                                 borderRadius: BorderRadius.circular(32),
                                 splashColor: Colors.grey,
-                                radius: gMQ.width * 100,                            
+                                radius: size.width * 100,
                                 onTap: () async {
-
                                   await Navigator.of(context).push(
-                                    MaterialPageRoute<void>(
-                                    builder: (BuildContext context) {
-                                      return OpenContainer(
-                                        transitionType: ContainerTransitionType.fade,
-                                        openBuilder: (BuildContext context, VoidCallback _) {
-                                          return Container();
-                                        },
-                                        closedElevation: 6.0,
-                                        closedShape: const RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.all(
-                                            Radius.circular(50),
-                                          ),
+                                      MaterialPageRoute<void>(
+                                          builder: (BuildContext context) {
+                                    return OpenContainer(
+                                      transitionType:
+                                          ContainerTransitionType.fade,
+                                      openBuilder: (BuildContext context,
+                                          VoidCallback _) {
+                                        return Container();
+                                      },
+                                      closedElevation: 6.0,
+                                      closedShape: const RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(50),
                                         ),
-                                        closedColor: Theme.of(context).colorScheme.secondary,
-                                        closedBuilder: (BuildContext context, VoidCallback openContainer) {
-                                                                        
-                                          var route;
-                                          // String routeName;
-                                          // "Marketplaces", "Jobs", "Connect", "Escalate"
-                                          switch (caption) {
-                                            case "Marketplaces":
-                                              route = JobSearchPage();
-                                              // routeName = MyPageStateNames.angel_home.toString();
-                                              break;
-                                            case "Jobs":
-                                              route = JobSearchPage();
-                                              // routeName = MyPageStateNames.draax_home.toString();
-                                              break;
-                                            case "Connect":
-                                              route = JobSearchPage();
-                                              // routeName = MyPageStateNames.school_home.toString();
-                                              break;
-                                            case "Escalate":
-                                            default:
-                                              route = CUGGroupPage();
-                                              // routeName = MyPageStateNames.home.toString();
-                                          }
-                                          return SizedBox(
-                                            height: 50,
-                                            width: 30,
-                                            child: route,
-                                          );
-                                        },
-                                      );
-                                    }
-                                  ));
+                                      ),
+                                      closedColor: Theme.of(context)
+                                          .colorScheme
+                                          .secondary,
+                                      closedBuilder: (BuildContext context,
+                                          VoidCallback openContainer) {
+                                        var route;
+                                        // String routeName;
+                                        // "Marketplaces", "Jobs", "Connect", "Escalate"
+                                        switch (caption) {
+                                          case "Marketplaces":
+                                            route = JobSearchPage();
+                                            // routeName = MyPageStateNames.angel_home.toString();
+                                            break;
+                                          case "Jobs":
+                                            route = JobSearchPage();
+                                            // routeName = MyPageStateNames.draax_home.toString();
+                                            break;
+                                          case "Connect":
+                                            route = JobSearchPage();
+                                            // routeName = MyPageStateNames.school_home.toString();
+                                            break;
+                                          case "Escalate":
+                                          default:
+                                            route = CUGGroupPage();
+                                          // routeName = MyPageStateNames.home.toString();
+                                        }
+                                        return SizedBox(
+                                          // height: 50,
+                                          // width: 30,
+                                          child: route,
+                                        );
+                                      },
+                                    );
+                                  }));
                                 },
                                 child: Container(
-                                  height: gMQ.height * 0.3,
+                                  // height: size.height * 0.3,
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
-                                      // Padding(
-                                      //   padding: const EdgeInsets.all(4.0),
-                                      //   child: Image.asset(
-                                      //     'assets/images/arms.png', 
-                                      //     // width: size.width * 0.15
-                                      //     // Todo: service.LogoURL,
-                                      //     // fit: BoxFit.fitWidth,
-                                      //     width: gMQ.width * 0.5,
-                                      //     height: gMQ.height * 0.075,
-                                      //   ),
-                                      // ),
                                       Padding(
-                                        padding: const EdgeInsets.only(top: 3.0),
+                                        padding:
+                                            const EdgeInsets.only(top: 3.0),
                                         child: Image.asset(
-                                            'assets/images/arms.png', width: gMQ.width * 0.15,),
+                                          'assets/images/market.jpg',
+                                          fit: BoxFit.fill,
+                                        ),
+                                        // , width: size.width * 0.15,),
                                       ),
-
+                                      SizedBox(
+                                        height: size.height * 0.02,
+                                      ),
                                       MyTitleText(
-                                        text: caption,                                  
-                                        color: Colors.black,
+                                        text: caption,
+                                        color: Theme.of(context).accentColor,
                                         // bold: true,
                                         alignment: TextAlign.center,
                                       ),
-
                                       Flexible(
-                                        child: Container(                             
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(8.0),
-                                              topRight: Radius.circular(8.0),
-                                              bottomLeft: Radius.circular(16.0),
-                                              bottomRight: Radius.circular(16.0)
-                                            ),
-                                            border: Border.all(
-                                              color: Colors.white,
-                                            ),
-                                            color: Theme.of(context).accentColor,
-                                          ),
-                                          width: gMQ.width,
-                                          height: gMQ.height * 0.15,
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Center(
-                                              child: MySmallerText(
-                                                text: "Click here to see what's available for you",
-                                                // color: MyAppBloc.parseColor(service.AppBarTextColor),
-                                                bold: true,
-                                                alignment: TextAlign.center
-                                              )
-                                            ),
-                                          ),
-                                        ),
+                                        child: Center(
+                                            child: MySmallerText(
+                                          text:
+                                              "Click here to see what's available for you",
+                                          bold: true,
+                                          alignment: TextAlign.center,
+                                          color: Theme.of(context).accentColor,
+                                        )),
                                       )
                                     ],
                                   ),
@@ -309,95 +230,158 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                         }),
                       ),
                     ),
-                    Expanded(
-                      flex: 1 ,
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            Card(
-                              color: Colors.purple,
-                              elevation:2,
-                              // margin: EdgeInsets.all(5.0),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text('Ad 1', style: TextStyle(fontSize:40.0)),
+                  ),
+                  SizedBox(
+                    width: size.width * 0.02,
+                  ),
+                  Expanded(
+                    flex: 5,
+                    child: Container(
+                      // color: Colors.yellow,
+                      child: GridView.builder(
+                        shrinkWrap: true,
+                        // physics: ScrollPhysics(),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2),
+                        itemCount: building.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          final currentItem = building[index];
+                          return GestureDetector(
+                            onTap: () {
+                              // Navigator.pushNamed(
+                              //         context, currentItem['callToAction'])
+                              //     .toString();
+                            },
+                            child: Card(
+                              // color: Colors.blue,
+                              elevation: 2.0,
+                              child: Container(
+                                padding: EdgeInsets.only(top: 10.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: <Widget>[
+                                    Image.asset(currentItem['image'],
+                                       fit: BoxFit.fill),
+                                    SizedBox(
+                                      height: size.height * 0.02,
+                                    ),
+                                    MyTitleText(
+                                      text:currentItem['title'],
+                                      color: Theme.of(context).accentColor,                                      
+                                    ),
+                                    // Text(
+                                    //   currentItem['suBTitle'],
+                                    //   // style:  TextStyle(fontWeight: FontWeight.bold),
+                                    //   textAlign: TextAlign.center,
+                                    // ),
+                                  ],
+                                ),
                               ),
                             ),
-                            Card(
-                              color: Colors.yellow,
-                              elevation:2,
-                              // margin: EdgeInsets.all(5.0),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text('Ad 2', style: TextStyle(fontSize:40.0)),
-                              ),
-                            ),
-                            Card(
-                              color: Colors.purple,
-                              elevation:2,
-                              // margin: EdgeInsets.all(5.0),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text('Ad 1', style: TextStyle(fontSize:40.0)),
-                              ),
-                            ),
-                            Card(
-                              color: Colors.yellow,
-                              elevation:2,
-                              // margin: EdgeInsets.all(5.0),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text('Ad 2', style: TextStyle(fontSize:40.0)),
-                              ),
-                            ),
-                            Card(
-                              color: Colors.purple,
-                              elevation:2,
-                              // margin: EdgeInsets.all(5.0),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text('Ad 1', style: TextStyle(fontSize:40.0)),
-                              ),
-                            ),
-                            Card(
-                              color: Colors.yellow,
-                              elevation:2,
-                              // margin: EdgeInsets.all(5.0),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text('Ad 2', style: TextStyle(fontSize:40.0)),
-                              ),
-                            ),
-                            Card(
-                              color: Colors.purple,
-                              elevation:2,
-                              // margin: EdgeInsets.all(5.0),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text('Ad 1', style: TextStyle(fontSize:40.0)),
-                              ),
-                            ),
-                            Card(
-                              color: Colors.yellow,
-                              elevation:2,
-                              // margin: EdgeInsets.all(5.0),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text('Ad 2', style: TextStyle(fontSize:40.0)),
-                              ),
-                            ),
-                          ],
-                        ),
+                          );
+                        },
                       ),
-                      ),  
-                    // Todo: use column for Ads
-                  ],
-                ),
+                      
+                    ),
+                  ),
+                  SizedBox(
+                    width: size.width * 0.02,
+                  ),
+                  Expanded(
+                    flex: 3,
+                    child: Container(
+                      child: GridView.builder(
+                        shrinkWrap: true,
+                        // physics: ScrollPhysics(),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 1),
+                        itemCount: ads.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          final currentItem = ads[index];
+                          return GestureDetector(
+                            onTap: () {
+                              // Navigator.pushNamed(
+                              //         context, currentItem['callToAction'])
+                              //     .toString();
+                            },
+                            child: Card(
+                              // color: Colors.blue,
+                              elevation: 2.0,
+                              child: Container(
+                                padding: EdgeInsets.only(top: 10.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: <Widget>[
+                                    Image.asset(currentItem['image'],
+                                       fit: BoxFit.fill),
+                                    SizedBox(
+                                      height: size.height * 0.02,
+                                    ),
+                                    MyTitleText(
+                                      text:currentItem['title'],
+                                      color: Theme.of(context).accentColor,                                      
+                                    ),
+                                    // Text(
+                                    //   currentItem['suBTitle'],
+                                    //   // style:  TextStyle(fontWeight: FontWeight.bold),
+                                    //   textAlign: TextAlign.center,
+                                    // ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
-      )
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class Cards extends StatelessWidget {
+  const Cards({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Card(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 3.0),
+            child: Image.asset(
+              'assets/images/market.jpg',
+              fit: BoxFit.fill,
+            ),
+            // , width: size.width * 0.15,),
+          ),
+          SizedBox(
+            height: size.height * 0.02,
+          ),
+          MyTitleText(
+            text: 'views',
+            color: Theme.of(context).accentColor,
+            // bold: true,
+            alignment: TextAlign.center,
+          ),
+          Flexible(
+            child: Center(
+                child: MySmallerText(
+              text: "Click here to see what's available for you",
+              bold: true,
+              alignment: TextAlign.center,
+              color: Theme.of(context).accentColor,
+            )),
+          )
+        ],
+      ),
     );
   }
 }
