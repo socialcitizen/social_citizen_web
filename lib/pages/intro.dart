@@ -1,195 +1,172 @@
-import 'dart:math';
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:liquid_swipe/liquid_swipe.dart';
-import 'package:social_citizen_web/widgets/services.dart';
-import 'package:social_citizen_web/widgets/text.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:clippy_flutter/clippy_flutter.dart';
 
-class ItemData {
-  // final Color color;
-  final String image;
-  // final String text1;
-  // final String text2;
-  final String text1;
-  final Widget row;
-
-  ItemData(this.image, this.text1, this.row);
-}
-
-/// Example of LiquidSwipe with itemBuilder
 class IntroPage extends StatefulWidget {
+  
   @override
-  _IntroPage createState() => _IntroPage();
+  _IntroPageState createState() => _IntroPageState();
 }
 
-class _IntroPage extends State<IntroPage> {
-  int page = 0;
-  LiquidController liquidController;
-  UpdateType updateType;
+class _IntroPageState extends State<IntroPage> {
+  
+  SwiperController swiperController;
 
-  List<ItemData> data = [
-    ItemData(
-      "assets/images/ring-road.jpg", 
-      "Ób’ókhían", 
-      MyBoldText(
-        text: "Welcome",
-      )
-    ),
-    ItemData(
-      "assets/images/ring-road.jpg",
-      "Edo Social Citizen App", 
-      Padding(
-        padding: const EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 5.0),
-        child: MySmallerText(
-          text: "This app bridges the communication gap between the Government and citizens of Edo state and promote financial inclusion that guarantee social empowerment and financial services",
-          alignment: TextAlign.center,
-        ),
-      )
-    ),
-    ItemData("assets/images/ring-road.jpg", "Services", Services()),
-
-    // ItemData(Colors.deepPurpleAccent, "assets/1.png", "Take a", "Look At", "Liquid Swipe"),
-    // ItemData(Colors.green, "assets/1.png", "Liked?", "Fork!", "Give Star!"),
-    // ItemData(Colors.yellow, "assets/1.png", "Can be", "Used for", "Onboarding design"),
-    // ItemData(Colors.red, "assets/1.png", "Do", "try it", "Thank you"),
-  ];
   @override
   void initState() {
-    liquidController = LiquidController();
-    super.initState();
+    
+    super.initState();    
+
+    swiperController = SwiperController();
+
+    Future.delayed(Duration(seconds: 12)).then((value) {
+      
+      swiperController.startAutoplay();
+    });
   }
 
-  Widget _buildDot(int index) {
-    double selectedness = Curves.easeOut.transform(
-      max(
-        0.0,
-        1.0 - ((page ?? 0) - index).abs(),
+  List<Widget> get intros {
+
+    return [
+      MySwiperPage(
+        imagePath: "assets/images/benin_moat.jpg",
+        title: "WELCOME",
+        subtitle: "Ób’ókhían",
       ),
-    );
-    double zoom = 1.0 + (2.0 - 1.0) * selectedness;
-    return new Container(
-      width: 25.0,
-      child: new Center(
-        child: new Material(
-          color: Colors.white,
-          type: MaterialType.circle,
-          child: new Container(
-            width: 8.0 * zoom,
-            height: 8.0 * zoom,
-          ),
-        ),
+      MySwiperPage(
+        imagePath: "assets/images/national_museum_benin_city.jpg",
+        title: "EDO SOCIAL CITIZEN PLATFORM",
+        subtitle: "This app bridges the communication gap between the Government and citizens of Edo state and promote financial inclusion that guarantee social empowerment and financial services"
       ),
-    );
+      MySwiperPage(
+        imagePath: "assets/images/ring_road.jpg",
+        title: "EDO NO BE LAGOS",
+        subtitle: "Placeholder text. Please request from client branding department."
+      ),
+      MySwiperPage(
+        imagePath: "assets/images/igue_festival.jpg",
+        title: "WELCOME",
+        subtitle: "Placeholder text. Please request from client branding department."
+      ),
+      MySwiperPage(
+        imagePath: "assets/images/edo_state_logo.png",
+        title: "PAY YOUR TAX",
+        subtitle: "Placeholder text. Please request from client branding department."
+      )
+    ];
   }
 
   @override
   Widget build (BuildContext context) {
-
-    Size size = MediaQuery.of(context).size;
     
-    return MaterialApp(
-      home: Scaffold(
-        body: Stack(
-          children: <Widget>[
-            LiquidSwipe.builder(
-              itemCount: data.length,
-              itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    Container(
-                      // constraints: BoxConstraints.expand(),                      
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          colorFilter: new ColorFilter.mode(Colors.yellow, BlendMode.dstATop),
-                          // colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.1), BlendMode.dstATop),
-                          image: AssetImage(
-                            data[index].image
-                          ),
-                          fit: BoxFit.cover,                            
-                        ),
-                      ),
-                      height: size.height * 0.6,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[                      
-                        Text(
-                          data[index].text1,
-                          style: TextStyle(
-                            fontWeight:FontWeight.bold,
-                            fontSize: 20.0
-                          ),
-                        ),
-                        data[index].row,
-                      ],
-                    ),
-                  ],
-                );
-              },
-              positionSlideIcon: 0.8,
-              slideIconWidget: Icon(Icons.arrow_back_ios),
-              onPageChangeCallback: pageChangeCallback,
-              waveType: WaveType.liquidReveal,
-              liquidController: liquidController,
-              ignoreUserGestureWhileAnimating: true
-            ),
-            // Padding(
-            //   padding: EdgeInsets.all(20),
-            //   child: Column(
-            //     children: <Widget>[
-            //       Expanded(child: SizedBox()),
-            //       Row(
-            //         mainAxisAlignment: MainAxisAlignment.center,
-            //         children: List<Widget>.generate(data.length, _buildDot),
-            //       ),
-            //     ],
-            //   ),
-            // ),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: Padding(
-                padding: const EdgeInsets.all(25.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    // liquidController.animateToPage(
-                    //     page: data.length - 1, duration: 700);
-                    Navigator.pushNamed(context, '/signup');
-                  },
-                  child: Text("Done"),
-                  style: ElevatedButton.styleFrom(
-                     primary: Color(0xff800000),                    
-                     onPrimary: Colors.white,
-                  ),
-                ),
-              ),
-            ),
-            Align(
-              alignment: Alignment.bottomLeft,
-              child: Padding(
-                padding: const EdgeInsets.all(25.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    liquidController.jumpToPage(
-                      page: liquidController.currentPage + 1 > data.length - 1 ? 0: liquidController.currentPage + 1
-                    );
-                  },
-                  child: Text("Next"),
-                  style: ElevatedButton.styleFrom(
-                     primary: Color(0xffFFFF00),
-                     onPrimary: Colors.black,
-                  ),                  
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
+    Size size = MediaQuery.of(context).size;
+
+    return Scaffold(
+      backgroundColor: Colors.white,
+      
+      body: Swiper(
+        onIndexChanged: (int index) {
+          if (index == 0) {
+            
+            swiperController.stopAutoplay();
+
+            Future.delayed(Duration(seconds: 12)).then((value) {      
+              swiperController.startAutoplay();
+            });
+          }
+        },
+        controller: swiperController,
+        physics: ScrollPhysics(),
+        autoplay: false,
+        autoplayDisableOnInteraction: true,
+        layout: SwiperLayout.DEFAULT,
+        itemHeight: size.height,
+        itemWidth: size.width,
+        itemBuilder: (BuildContext context,int index) {
+          return intros[index];          
+        },
+        itemCount: intros.length,
+        pagination: new SwiperPagination(),
+        // control: new SwiperControl(),
+      )
     );
   }
+}
 
-  pageChangeCallback(int lpage) {
-    setState(() {
-      page = lpage;
-    });
+class MySwiperPage extends StatelessWidget {
+  const MySwiperPage({Key key, this.title, this.subtitle, this.imagePath}) : super(key: key);
+
+  final String title;
+  final String subtitle;
+  final String imagePath;
+  // final String titleAnimationType;
+
+  @override
+  Widget build (BuildContext context) {
+    
+    Size size = MediaQuery.of(context).size;
+
+    return Container(
+      color: Colors.grey[200],
+      child: Column(
+        // fit: StackFit.expand,
+        children: [        
+          Image.asset(
+            imagePath,
+            width: size.width,
+            height: size.height * 0.4,
+            fit: BoxFit.fill,
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              color: Colors.white,
+              width: size.width,
+              height: size.height * 0.6,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Flexible(
+                      child: Padding(
+                        padding: const EdgeInsets.all(32.0),
+                        child: ElasticInLeft(
+                          child: Text(
+                            title,
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Flexible(
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: ElasticInRight(
+                          child: Text(
+                            subtitle,
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.black
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ]
+      )
+    );
   }
 }

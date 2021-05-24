@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+
+// import 'package:shimmer/shimmer.dart';
 import 'package:social_citizen_web/widgets/text.dart';
 
 class AlreadyHaveAnAccountCheck extends StatefulWidget {
@@ -32,32 +34,42 @@ class _AlreadyHaveAnAccountCheckState extends State<AlreadyHaveAnAccountCheck> {
     
     hoverColor = Theme.of(context).accentColor;
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.all(8),
-          child: MySmallerText(
-            text: widget.login ? "Don't have an account?" : "Already have an account?"
-          )
-        ),
-        MouseRegion(
-          cursor: SystemMouseCursors.click,
-          onHover: (event) {
-            setState(() => hoverColor = Colors.black);
-          },
-          child: Material(
-            color: Colors.grey,
-            child: InkWell(          
-              onTap: widget.press,
-              child: MySmallerText(
-                text: widget.login ? "Sign Up" : "Sign In",
-                color: hoverColor
-              )
+    return Container(
+      // color: Colors.grey[200],
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(8),
+            child: MySmallerText(
+              text: widget.login ? "Don't have an account?" : "Already have an account?"
             )
           ),
-        ),
-      ],
+          MouseRegion(
+            cursor: SystemMouseCursors.click,
+            onHover: (event) {
+              setState(() => hoverColor = Colors.black);
+            },
+            child: Material(
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.circular(32),
+              child: InkWell(
+                splashColor: Theme.of(context).accentColor,
+                radius: 400,
+                borderRadius: BorderRadius.circular(32),
+                onTap: widget.press,
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: MySmallerText(
+                    text: widget.login ? "Sign Up" : "Sign In",
+                    color: hoverColor
+                  )
+                )
+              )
+            ),
+          ),
+        ],
+      )
     );
   }
 }
