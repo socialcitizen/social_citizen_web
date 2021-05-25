@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:clippy_flutter/clippy_flutter.dart';
 
-class IntroPage extends StatefulWidget {
+class IntroPageS extends StatefulWidget {
   
   @override
-  _IntroPageState createState() => _IntroPageState();
+  _IntroPageSState createState() => _IntroPageSState();
 }
 
-class _IntroPageState extends State<IntroPage> {
+class _IntroPageSState extends State<IntroPageS> {
   
   SwiperController swiperController;
 

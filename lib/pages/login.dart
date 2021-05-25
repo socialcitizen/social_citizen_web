@@ -25,7 +25,7 @@ class LoginPage extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 15.0),
-                child: Image.asset('assets/images/edo-coat.jpg', width: size.width * 0.15),
+                child: Image.asset('assets/images/logo_no_bg.png', width: size.width * 0.15),
               ),              
               CustomTextField(
                 hintText: 'Email',

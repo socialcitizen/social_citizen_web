@@ -28,7 +28,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
     {
       'title': 'How to register for NIN',
       'callToAction': '/postdetails',
-      'image': 'assets/images/market.jpg'
+      'image': 'assets/images/explanation.jpg'
     },
     {
       'title': 'Job opportunities',
@@ -38,12 +38,12 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
     {
       'title': 'NAFDAC Recruitment',
       'callToAction': '/postdetails',
-      'image': 'assets/images/market.jpg'
+      'image': 'assets/images/explanation.jpg'
     },
     {
       'title': 'NCDC warns against human cluster',
       'callToAction': '/postdetails',
-      'image': 'assets/images/jobs.jpg'
+      'image': 'assets/images/market.jpg'
     },
   ];
 
@@ -69,7 +69,6 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
       'image': 'assets/images/shoes.jpg'
     },
   ];
-
 
   @override
   void initState() {
@@ -113,7 +112,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
-                    flex: 4,
+                    flex: 3,
                     child: Container(
                       // color: Colors.purple,
                       child: GridView.count(
@@ -121,9 +120,10 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                         // scrollDirection: Axis.vertical,
                         mainAxisSpacing: 0.0,
                         // gMQ.height * 0.003,
-                        crossAxisCount: 2,
+                        crossAxisCount: 1,
                         children: List.generate(tileCaptions.length, (index) {
                           String caption = tileCaptions[index];
+                          String image = images[index];
 
                           return Card(
                             elevation: 2,
@@ -261,13 +261,13 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
                                     Image.asset(currentItem['image'],
-                                       fit: BoxFit.fill),
+                                        fit: BoxFit.fill),
                                     SizedBox(
                                       height: size.height * 0.02,
                                     ),
                                     MyTitleText(
-                                      text:currentItem['title'],
-                                      color: Theme.of(context).accentColor,                                      
+                                      text: currentItem['title'],
+                                      color: Theme.of(context).accentColor,
                                     ),
                                     // Text(
                                     //   currentItem['suBTitle'],
@@ -281,14 +281,13 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                           );
                         },
                       ),
-                      
                     ),
                   ),
                   SizedBox(
                     width: size.width * 0.02,
                   ),
                   Expanded(
-                    flex: 2,
+                    flex: 3,
                     child: Container(
                       child: GridView.builder(
                         shrinkWrap: true,
@@ -313,13 +312,13 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
                                     Image.asset(currentItem['image'],
-                                       fit: BoxFit.fill),
+                                        fit: BoxFit.fill),
                                     SizedBox(
                                       height: size.height * 0.02,
                                     ),
                                     MyTitleText(
-                                      text:currentItem['title'],
-                                      color: Theme.of(context).accentColor,                                      
+                                      text: currentItem['title'],
+                                      color: Theme.of(context).accentColor,
                                     ),
                                     // Text(
                                     //   currentItem['suBTitle'],

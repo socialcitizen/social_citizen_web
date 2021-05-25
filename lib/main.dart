@@ -8,6 +8,7 @@ import 'package:social_citizen_web/pages/home.dart';
 import 'package:social_citizen_web/pages/home_old.dart';
 import 'package:social_citizen_web/pages/intro.dart';
 import 'package:social_citizen_web/pages/intro_page_old.dart';
+import 'package:social_citizen_web/pages/intro_web.dart';
 import 'package:social_citizen_web/pages/job_search.dart';
 import 'package:social_citizen_web/pages/login.dart';
 import 'package:social_citizen_web/pages/make_transaction.dart';
