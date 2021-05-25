@@ -90,12 +90,18 @@ class _IntroPageState extends State<IntroPage> {
                   //   // I used fill to retain the quality of the image after stretching
                   //   // cover
                   // ),
-                  Swiper(
-                itemBuilder: (BuildContext context, int index) {
-                  return new Image.asset(
-                    images[index],
-                    fit: BoxFit.fill,
-                  );
+                  Column(
+                    children: [
+                      Container(
+                        color: Colors.white,
+                        height: size.height * 0.1,
+                      ),
+                      Swiper(
+                      itemBuilder: (BuildContext context, int index) {
+                      return new Image.asset(
+                        images[index],
+                        fit: BoxFit.fill,
+                      );
                 },
 
                 // indicatorLayout: PageIndicatorLayout.COLOR,
@@ -104,6 +110,8 @@ class _IntroPageState extends State<IntroPage> {
                 pagination: new SwiperPagination(),
                 control: new SwiperControl(),
               ),
+                    ],
+                  ),
 
               title: Material(
                 color: Colors.white.withOpacity(0.8),
