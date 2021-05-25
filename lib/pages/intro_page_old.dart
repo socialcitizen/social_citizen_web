@@ -15,12 +15,12 @@ class ItemData{
 }
 
 /// Example of LiquidSwipe with itemBuilder
-class IntroPage extends StatefulWidget {
+class IntroPageOld extends StatefulWidget {
   @override
-  _IntroPage createState() => _IntroPage();
+  _IntroPageOld createState() => _IntroPageOld();
 }
 
-class _IntroPage extends State<IntroPage> {
+class _IntroPageOld extends State<IntroPageOld> {
   int page = 0;
   LiquidController liquidController;
   UpdateType updateType;

@@ -49,24 +49,24 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
 
   final List<Map<String, dynamic>> ads = [
     {
-      'title': 'How to register for NIN',
+      'title': 'Classy clothes for any ocassion',
       'callToAction': '/postdetails',
-      'image': 'assets/images/market.jpg'
+      'image': 'assets/images/clothes.jpg'
     },
     {
-      'title': 'Job opportunities',
+      'title': 'Get this for a perfect skin',
       'callToAction': '/postdetails',
-      'image': 'assets/images/jobs.jpg'
+      'image': 'assets/images/shoes.jpg'
     },
     {
-      'title': 'NAFDAC Recruitment',
+      'title': 'Classy Louis Vuiton shoes',
       'callToAction': '/postdetails',
-      'image': 'assets/images/market.jpg'
+      'image': 'assets/images/clothes.jpg'
     },
     {
-      'title': 'NCDC warns against human cluster',
+      'title': 'Get these fine luxury wool at an affordable price',
       'callToAction': '/postdetails',
-      'image': 'assets/images/jobs.jpg'
+      'image': 'assets/images/shoes.jpg'
     },
   ];
 
@@ -121,7 +121,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                         // scrollDirection: Axis.vertical,
                         mainAxisSpacing: 0.0,
                         // gMQ.height * 0.003,
-                        crossAxisCount: 1,
+                        crossAxisCount: 2,
                         children: List.generate(tileCaptions.length, (index) {
                           String caption = tileCaptions[index];
 
@@ -235,7 +235,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                     width: size.width * 0.02,
                   ),
                   Expanded(
-                    flex: 5,
+                    flex: 6,
                     child: Container(
                       // color: Colors.yellow,
                       child: GridView.builder(
@@ -288,7 +288,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                     width: size.width * 0.02,
                   ),
                   Expanded(
-                    flex: 3,
+                    flex: 2,
                     child: Container(
                       child: GridView.builder(
                         shrinkWrap: true,

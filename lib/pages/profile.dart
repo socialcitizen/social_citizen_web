@@ -4,6 +4,7 @@ import 'package:social_citizen_web/widgets/custom_textform_field.dart';
 import 'package:social_citizen_web/widgets/customized_tile.dart';
 import 'package:social_citizen_web/widgets/drawer.dart';
 import 'package:social_citizen_web/widgets/drop_downbutton_form_field.dart';
+import 'package:social_citizen_web/widgets/indicator.dart';
 import 'package:social_citizen_web/widgets/links.dart';
 import 'package:social_citizen_web/widgets/profile_pics.dart';
 import 'package:social_citizen_web/widgets/text.dart';
@@ -53,6 +54,8 @@ class _ProfileState extends State<Profile> {
                       child: Card(
                         child: Column(
                           children: [
+                            // LinearProgressIndicator(),
+                            Indicator(),
                             CustomizedListTile(
                             color: Theme.of(context).accentColor,
                             onTap: () {

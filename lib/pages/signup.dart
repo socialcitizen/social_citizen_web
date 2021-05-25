@@ -42,6 +42,9 @@ class SignUpPage extends StatelessWidget {
               CustomTextField(
                 hintText: 'Password',
               ),
+              CustomTextField(
+                hintText: 'Confirm Password',
+              ),
               // Padding(
               //   padding: const EdgeInsets.only(left:270,  right:270),
               //   child:

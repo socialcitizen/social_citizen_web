@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_citizen_web/widgets/custom_elevated_button.dart';
 import 'package:social_citizen_web/widgets/custom_textform_field.dart';
 import 'package:social_citizen_web/widgets/drawer.dart';
 import 'package:social_citizen_web/widgets/links.dart';
@@ -89,6 +90,15 @@ class _JobSearchPageState extends State<JobSearchPage> {
                             fontWeight: FontWeight.w800
                           ),),
                          Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu mi bibendum neque egestas congue quisque egestas diam. Est sit amet facilisis magna etiam tempor orci'),
+                         CustomElevatedButton(
+                           width: size.width * 0.09, 
+                          onPressed: (){
+                            // Navigator.pushNamed(context, '/home');
+                          },
+                          text: 'Apply',
+                          elevation: 1.0,
+                          backgroundcolor: Theme.of(context).accentColor,                  
+                        ),
                        ],
                      ),
                    ),
