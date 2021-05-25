@@ -319,12 +319,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                                     MyTitleText(
                                       text: currentItem['title'],
                                       color: Theme.of(context).accentColor,
-                                    ),
-                                    // Text(
-                                    //   currentItem['suBTitle'],
-                                    //   // style:  TextStyle(fontWeight: FontWeight.bold),
-                                    //   textAlign: TextAlign.center,
-                                    // ),
+                                    ),                                    
                                   ],
                                 ),
                               ),

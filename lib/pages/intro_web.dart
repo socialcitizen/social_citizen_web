@@ -4,50 +4,52 @@ import 'package:social_citizen_web/widgets/custom_elevated_button.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:social_citizen_web/widgets/text.dart';
 
-
 final String cLogoPath = "assets/image/edo_state_logo.png";
 
-TextStyle textStyle (double fontSize, bool bold) {
-
+TextStyle textStyle(double fontSize, bool bold) {
   return TextStyle(
     fontSize: fontSize,
-    fontWeight: bold ? FontWeight.bold: FontWeight.w500,
+    fontWeight: bold ? FontWeight.bold : FontWeight.w500,
     color: Colors.black,
   );
 }
 
 class IntroPage extends StatefulWidget {
-  
   @override
   _IntroPageState createState() => _IntroPageState();
 }
 
 class _IntroPageState extends State<IntroPage> {
-  
+  List<String> images = [
+    "assets/images/13.jpeg",
+    "assets/images/1.jpg",    
+    "assets/images/2.jpeg",
+    "assets/images/4.jpeg",
+    "assets/images/9.jpeg",
+    "assets/images/11.jpeg",
+    "assets/images/16.jpeg",
+  ];
+
   SwiperController swiperController;
 
   @override
   void initState() {
-    
-    super.initState();    
+    super.initState();
 
     swiperController = SwiperController();
 
     Future.delayed(Duration(seconds: 12)).then((value) {
-      
       swiperController.startAutoplay();
     });
   }
 
   @override
-  Widget build (BuildContext context) {
-    
+  Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: CustomScrollView(
-        slivers: <Widget>[
+        backgroundColor: Colors.white,
+        body: CustomScrollView(slivers: <Widget>[
           SliverAppBar(
             elevation: 0,
             backgroundColor: Colors.white,
@@ -57,16 +59,15 @@ class _IntroPageState extends State<IntroPage> {
             stretch: true,
             titleSpacing: 0.0,
             // iconTheme: new IconThemeData(color: Colors.black),
-            expandedHeight: size.height,// * 0.65,
+            expandedHeight: size.height, // * 0.65,
             actions: <Widget>[
               CustomElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "/signup");
-                },
-                text: "LOGIN",
-                backgroundcolor: Colors.white,
-                textcolor: Colors.black
-              ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/signup");
+                  },
+                  text: "LOGIN",
+                  backgroundcolor: Colors.white,
+                  textcolor: Colors.black),
               SizedBox(
                 width: size.width * 0.01,
               ),
@@ -82,12 +83,28 @@ class _IntroPageState extends State<IntroPage> {
             flexibleSpace: FlexibleSpaceBar(
               // stretchModes: [StretchMode.fadeTitle],
               titlePadding: EdgeInsets.zero,
-              background: Image.asset(
-                "images/2.jpeg",
-                fit: BoxFit.fill,
-                // I used fill to retain the quality of the image after stretching
-                // cover
+              background:
+                  // Image.asset(
+                  //   "images/2.jpeg",
+                  //   fit: BoxFit.fill,
+                  //   // I used fill to retain the quality of the image after stretching
+                  //   // cover
+                  // ),
+                  Swiper(
+                itemBuilder: (BuildContext context, int index) {
+                  return new Image.asset(
+                    images[index],
+                    fit: BoxFit.fill,
+                  );
+                },
+
+                // indicatorLayout: PageIndicatorLayout.COLOR,
+                autoplay: true,
+                itemCount: images.length,
+                pagination: new SwiperPagination(),
+                control: new SwiperControl(),
               ),
+
               title: Material(
                 color: Colors.white.withOpacity(0.8),
                 // borderRadius: BorderRadius.circular(24),
@@ -106,20 +123,17 @@ class _IntroPageState extends State<IntroPage> {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: Text(
-                        "EDO STATE SOCIAL CITIZEN PLATFORM",
-                        style: textStyle(24, true)
-                      ),
+                      child: Text("EDO STATE SOCIAL CITIZEN PLATFORM",
+                          style: textStyle(24, true)),
                     ),
                   ],
                 ),
               ),
             ),
           ),
-        
           SliverList(
-            delegate: SliverChildListDelegate([
-              Container(
+              delegate: SliverChildListDelegate([
+            Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
                 ),
@@ -127,219 +141,212 @@ class _IntroPageState extends State<IntroPage> {
                 // padding: const EdgeInsets.all(64),
                 // width: MediaQuery.of(context).size.width,
                 child: ListView(
-                  shrinkWrap: true,
-                  physics: ScrollPhysics(),
-                  children: <Widget>[
-                    // First
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 72),
-                      child: Wrap(
-                        alignment: WrapAlignment.center,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                            width: size.width * 0.3,
-                            height: size.height * 0.5,
-                            child: Image.asset(
-                              "images/2.jpeg",
-                              fit: BoxFit.cover,                              
-                            ),
-                          ),
-                          Container(
-                            width: size.width * 0.5,
-                            height: size.height * 0.5,
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 32.0),
-                              child: Material(
-                                color: Colors.white,
+                    shrinkWrap: true,
+                    physics: ScrollPhysics(),
+                    children: <Widget>[
+                      // First
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 32, horizontal: 72),
+                        child: Wrap(
+                          alignment: WrapAlignment.center,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(16),
-                                // elevation: 2,
+                              ),
+                              width: size.width * 0.3,
+                              height: size.height * 0.5,
+                              child: Image.asset(
+                                "images/2.jpeg",
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Container(
+                              width: size.width * 0.5,
+                              height: size.height * 0.5,
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 32.0),
+                                child: Material(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(16),
+                                  // elevation: 2,
+                                  child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        FadeInDown(
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(16.0),
+                                            child: Text(
+                                              "A new way of being active",
+                                              style: textStyle(28, true),
+                                              textAlign: TextAlign.justify,
+                                            ),
+                                          ),
+                                        ),
+                                        ElasticInLeft(
+                                          child: Flexible(
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(16.0),
+                                              child: Text(
+                                                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+                                                style: TextStyle(fontSize: 16),
+                                                textAlign: TextAlign.justify,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ]),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      // Second
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 32, horizontal: 72),
+                        child: Wrap(
+                          alignment: WrapAlignment.center,
+                          children: [
+                            Container(
+                              width: size.width * 0.5,
+                              height: size.height * 0.5,
+                              child: Padding(
+                                padding: const EdgeInsets.all(32.0),
                                 child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    FadeInDown(
-                                      child: Padding(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
                                         padding: const EdgeInsets.all(16.0),
                                         child: Text(
                                           "A new way of being active",
                                           style: textStyle(28, true),
-                                          textAlign: TextAlign.justify,
+                                          textAlign: TextAlign.left,
                                         ),
                                       ),
-                                    ),
-                                    ElasticInLeft(
-                                      child: Flexible(
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(16.0),
-                                          child: Text(
-                                            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
-                                            style: TextStyle(
-                                              fontSize: 16
-                                            ),
-                                            textAlign: TextAlign.justify,
-                                          ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(16.0),
+                                        child: Text(
+                                          "Engage your State government socially and responsibly.",
+                                          style: textStyle(14, true),
+                                          textAlign: TextAlign.left,
                                         ),
                                       ),
-                                    ),
-                                  ]
-                                ),
+                                    ]),
                               ),
                             ),
-                          ),
-                        ],
+                            Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(16),
+                                  color: Colors.grey[200]),
+                              width: size.width * 0.3,
+                              height: size.height * 0.5,
+                              child: Image.asset(
+                                "images/4.jpeg",
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
 
-                    // Second
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 72),
-                      child: Wrap(
-                        alignment: WrapAlignment.center,
-                        children: [
-                          Container(
-                            width: size.width * 0.5,
-                            height: size.height * 0.5,
-                            child: Padding(
+                      // Third
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 32),
+                        child: Wrap(
+                          alignment: WrapAlignment.start,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16),
+                              ),
+                              width: size.width * 0.5,
+                              height: size.height * 0.5,
+                              child: Image.asset(
+                                "images/6.jpeg",
+                                fit: BoxFit.cover,
+                              ),
+                              padding: EdgeInsets.zero,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(64.0),
+                              child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(16.0),
+                                      child: Text(
+                                        "A new way of being active",
+                                        style: textStyle(28, true),
+                                        textAlign: TextAlign.left,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(16.0),
+                                      child: Text(
+                                        "Engage your State government socially and responsibly.",
+                                        style: textStyle(14, true),
+                                        textAlign: TextAlign.left,
+                                      ),
+                                    ),
+                                  ]),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      // Fourth
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 32),
+                        child: Wrap(
+                          alignment: WrapAlignment.center,
+                          children: [
+                            Padding(
                               padding: const EdgeInsets.all(32.0),
                               child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(16.0),
-                                    child: Text(
-                                      "A new way of being active",
-                                      style: textStyle(28, true),
-                                      textAlign: TextAlign.left,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(16.0),
+                                      child: Text(
+                                        "A new way of being active",
+                                        style: textStyle(28, true),
+                                        textAlign: TextAlign.left,
+                                      ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(16.0),
-                                    child: Text(
-                                      "Engage your State government socially and responsibly.",
-                                      style: textStyle(14, true),
-                                      textAlign: TextAlign.left,
+                                    Padding(
+                                      padding: const EdgeInsets.all(16.0),
+                                      child: Text(
+                                        "Engage your State government socially and responsibly.",
+                                        style: textStyle(14, true),
+                                        textAlign: TextAlign.left,
+                                      ),
                                     ),
-                                  ),
-                                ]
+                                  ]),
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(16),
+                                  color: Colors.grey[200]),
+                              width: size.width * 0.3,
+                              height: size.height * 0.5,
+                              child: Image.asset(
+                                "images/7.jpeg",
+                                fit: BoxFit.cover,
                               ),
                             ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                              color: Colors.grey[200]
-                            ),
-                            width: size.width * 0.3,
-                            height: size.height * 0.5,
-                            child: Image.asset(
-                              "images/4.jpeg",
-                              fit: BoxFit.cover,                              
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-
-                    // Third
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 32),
-                      child: Wrap(
-                        alignment: WrapAlignment.start,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                            width: size.width * 0.5,
-                            height: size.height * 0.5,
-                            child: Image.asset(
-                              "images/6.jpeg",
-                              fit: BoxFit.cover,                              
-                            ),
-                            padding: EdgeInsets.zero,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(64.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(16.0),
-                                  child: Text(
-                                    "A new way of being active",
-                                    style: textStyle(28, true),
-                                    textAlign: TextAlign.left,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(16.0),
-                                  child: Text(
-                                    "Engage your State government socially and responsibly.",
-                                    style: textStyle(14, true),
-                                    textAlign: TextAlign.left,
-                                  ),
-                                ),
-                              ]
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  
-                    // Fourth
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 32),
-                      child: Wrap(
-                        alignment: WrapAlignment.center,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(32.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(16.0),
-                                  child: Text(
-                                    "A new way of being active",
-                                    style: textStyle(28, true),
-                                    textAlign: TextAlign.left,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(16.0),
-                                  child: Text(
-                                    "Engage your State government socially and responsibly.",
-                                    style: textStyle(14, true),
-                                    textAlign: TextAlign.left,
-                                  ),
-                                ),
-                              ]
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                              color: Colors.grey[200]
-                            ),
-                            width: size.width * 0.3,
-                            height: size.height * 0.5,
-                            child: Image.asset(
-                              "images/7.jpeg",
-                              fit: BoxFit.cover,                              
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ]
-                )
-              )
-            ])
-          )
-        ]
-      )
-    );
+                    ]))
+          ]))
+        ]));
   }
 }
