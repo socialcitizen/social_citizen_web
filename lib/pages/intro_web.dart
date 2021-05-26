@@ -6,8 +6,6 @@ import 'package:social_citizen_web/widgets/text.dart';
 import 'package:clippy_flutter/clippy_flutter.dart';
 
 
-final String cLogoPath = "assets/image/edo_state_logo.png";
-
 TextStyle textStyle (double fontSize, bool bold) {
 
   return TextStyle(
@@ -35,6 +33,25 @@ class _IntroPageState extends State<IntroPage> {
     "assets/images/11.jpeg",
     "assets/images/16.jpeg",
   ];
+  List<String> swiperTitles = [
+    "EDO STATE SOCIAL CITIZEN PLATFORM",
+    "CLOSED USER GROUPS.",
+    "GOVERNMENT WITHIN YOUR REACH",
+    "JOBS THAT ARE RIGHT FOR YOU",
+    "SMEs, GOODS & SERVICES",
+    "BE CREDIBLY INFORMED.",
+    "DAILY AND AFFORDABLE ADS",
+  ];
+  List<String> swiperSubtitles = [
+    "Engage. Socialize. Connect.",
+    "Interact responsibly within your communities and circles.",
+    "Escalate issues in your community.",
+    "Find verified jobs around you.",
+    "Conduct your online business within a secure environment.",
+    "Interactive and dynamic informational feeds.",
+    "Relevant ads to bring you closer to the things that matter."
+  ];
+  int swiperIndex;
   SwiperController swiperController;
 
   @override
@@ -42,6 +59,7 @@ class _IntroPageState extends State<IntroPage> {
     
     super.initState();    
 
+    swiperIndex = 0;
     swiperController = SwiperController();
 
     Future.delayed(Duration(seconds: 12)).then((value) {
@@ -120,12 +138,14 @@ class _IntroPageState extends State<IntroPage> {
                   },
                   // indicatorLayout: PageIndicatorLayout.COLOR,
                   autoplay: true,
-                  curve: Curves.fastOutSlowIn,
+                  curve: Curves.easeIn,
+                  duration: 750,
                   itemCount: imagePaths.length,
                   pagination: SwiperPagination(
 
                   ),
                   control: SwiperControl(),
+                  onIndexChanged: (int index) => setState(() => swiperIndex = index),
                 ),
               ),
               title: Material(
@@ -152,7 +172,8 @@ class _IntroPageState extends State<IntroPage> {
                           Padding(
                             padding: const EdgeInsets.all(2.0),
                             child: Text(
-                              "EDO STATE SOCIAL CITIZEN PLATFORM",
+                              swiperTitles[swiperIndex],
+                              // "EDO STATE SOCIAL CITIZEN PLATFORM",
                               style: textStyle(24, true)
                             ),
                           ),
@@ -163,7 +184,8 @@ class _IntroPageState extends State<IntroPage> {
                               child: Padding(
                                 padding: const EdgeInsets.all(4.0),
                                 child: Text(
-                                  "Engage. Socialize. Connect.",
+                                  swiperSubtitles[swiperIndex],
+                                  // "Engage. Socialize. Connect.",
                                   style: TextStyle(
                                     fontSize: 12,
                                     color: Colors.white
@@ -222,7 +244,7 @@ class _IntroPageState extends State<IntroPage> {
                         alignment: WrapAlignment.center,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.all(32.0),
+                            padding: const EdgeInsets.fromLTRB(0, 32, 32, 32.0),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -261,30 +283,10 @@ class _IntroPageState extends State<IntroPage> {
                       ),
                     ),
                   
-                    // Footer
-                    // Container(
-                    //   // padding: EdgeInsets.only(left:40, right:40, ),
-                    //   color: Theme.of(context).primaryColor.withRed(200),//Colors.black,
-                    //   height: size.height * 0.4,
-                    //   child: Column(
-                    //     crossAxisAlignment: CrossAxisAlignment.center,
-                    //     children: <Widget>[
-                    //       Padding(
-                    //         padding: const EdgeInsets.only(top: 30),
-                    //         child: Text(
-                    //           'Copyright ©2021, All Rights Reserved',
-                    //           style: TextStyle(
-                    //             color: Colors.white
-                    //           )
-                    //         ),
-                    //       ),
-                    //       Text('Powered by Intelytics', style:TextStyle(color: Colors.white)),
-                    //     ],
-                    //   ),
-                    // ),
                   ]
                 ),
               ),
+              // Footer
               Container(
                 // padding: EdgeInsets.only(left:40, right:40, ),
                 color: Theme.of(context).primaryColor.withRed(200),//Colors.black,
@@ -433,7 +435,7 @@ class _MySliverDelegateState extends State<MySliverDelegate> {
     return Container(
       height: size.height,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 72),
+        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 72),
         child: Wrap(
           alignment: WrapAlignment.center,
           children: [
