@@ -22,7 +22,7 @@ class IntroPage extends StatefulWidget {
 class _IntroPageState extends State<IntroPage> {
   List<String> images = [
     "assets/images/13.jpeg",
-    "assets/images/1.jpg",    
+    "assets/images/1.jpg",
     "assets/images/2.jpeg",
     "assets/images/4.jpeg",
     "assets/images/9.jpeg",
@@ -90,28 +90,28 @@ class _IntroPageState extends State<IntroPage> {
                   //   // I used fill to retain the quality of the image after stretching
                   //   // cover
                   // ),
-                  Column(
-                    children: [
-                      Container(
-                        color: Colors.white,
-                        height: size.height * 0.1,
-                      ),
-                      Swiper(
-                      itemBuilder: (BuildContext context, int index) {
+                //   Column(
+                // children: [
+                  // Container(
+                  //   color: Colors.white,
+                  //   height: size.height * 0.1,
+                  // ),
+                  Swiper(
+                    itemBuilder: (BuildContext context, int index) {
                       return new Image.asset(
                         images[index],
                         fit: BoxFit.fill,
                       );
-                },
+                    },
 
-                // indicatorLayout: PageIndicatorLayout.COLOR,
-                autoplay: true,
-                itemCount: images.length,
-                pagination: new SwiperPagination(),
-                control: new SwiperControl(),
-              ),
-                    ],
+                    // indicatorLayout: PageIndicatorLayout.COLOR,
+                    autoplay: true,
+                    itemCount: images.length,
+                    pagination: new SwiperPagination(),
+                    control: new SwiperControl(),
                   ),
+              //   ],
+              // ),
 
               title: Material(
                 color: Colors.white.withOpacity(0.8),
@@ -350,11 +350,34 @@ class _IntroPageState extends State<IntroPage> {
                                 fit: BoxFit.cover,
                               ),
                             ),
+                            
                           ],
                         ),
                       ),
-                    ]))
-          ]))
-        ]));
+                      Container(
+                        // padding: EdgeInsets.only(left:40, right:40, ),
+                        color: Colors.black,
+                        height: size.height * 0.1,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(top: 30),
+                              child: Text('Copyright ©2021, All Rights Reserved', style:TextStyle(color: Colors.white)),
+                            ),
+                            Text('Powered by Intelytics', style:TextStyle(color: Colors.white)),
+                          ],
+                        ),
+                      ),
+                    ]
+                  )
+                )
+          ]
+        )
+      ),
+      
+    ]
+  )
+);
   }
 }
