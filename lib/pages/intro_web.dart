@@ -12,7 +12,7 @@ TextStyle textStyle (double fontSize, bool bold) {
 
   return TextStyle(
     fontSize: fontSize,
-    fontFamily: "Raleway",
+    // fontFamily: "Raleway",
     fontWeight: bold ? FontWeight.bold: FontWeight.w500,
     color: Colors.black,
   );
@@ -26,6 +26,15 @@ class IntroPage extends StatefulWidget {
 
 class _IntroPageState extends State<IntroPage> {
   
+  List<String> imagePaths = [
+    "assets/images/13.jpeg",
+    "assets/images/1.jpg",
+    "assets/images/2.jpeg",
+    "assets/images/4.jpeg",
+    "assets/images/9.jpeg",
+    "assets/images/11.jpeg",
+    "assets/images/16.jpeg",
+  ];
   SwiperController swiperController;
 
   @override
@@ -52,7 +61,15 @@ class _IntroPageState extends State<IntroPage> {
         slivers: <Widget>[
           SliverAppBar(
             elevation: 0,
-            backgroundColor: Colors.red,
+            leading: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset(
+                "images/logo_no_bg.png",
+                fit: BoxFit.cover,
+                height: size.height * 0.2
+              ),
+            ),
+            backgroundColor: Colors.white,
             // backgroundColor: Theme.of(context).accentColor,
             pinned: true,
             // floating: true,
@@ -81,7 +98,7 @@ class _IntroPageState extends State<IntroPage> {
                   },
                   text: "SIGNUP",
                   textcolor: Colors.white,
-                  backgroundcolor: Theme.of(context).accentColor,
+                  backgroundcolor: Theme.of(context).primaryColor,
                 ),
               )
             ],
@@ -90,9 +107,25 @@ class _IntroPageState extends State<IntroPage> {
               titlePadding: EdgeInsets.zero,
               background: Padding(
                 padding: const EdgeInsets.only(top: 72),
-                child: Image.asset(
-                  "images/1.jpg",
-                  fit: BoxFit.cover
+                // child: Image.asset(
+                //   "images/1.jpg",
+                //   fit: BoxFit.cover
+                // ),
+                child: Swiper(
+                  itemBuilder: (BuildContext context, int index) {
+                    return new Image.asset(
+                      imagePaths[index],
+                      fit: BoxFit.cover,
+                    );
+                  },
+                  // indicatorLayout: PageIndicatorLayout.COLOR,
+                  autoplay: true,
+                  curve: Curves.fastOutSlowIn,
+                  itemCount: imagePaths.length,
+                  pagination: SwiperPagination(
+
+                  ),
+                  control: SwiperControl(),
                 ),
               ),
               title: Material(
@@ -125,10 +158,10 @@ class _IntroPageState extends State<IntroPage> {
                           ),
                           Flexible(
                             child: Material(
-                              color: Colors.red,
+                              color: Theme.of(context).primaryColor,
                               borderRadius: BorderRadius.circular(32),
                               child: Padding(
-                                padding: const EdgeInsets.all(2.0),
+                                padding: const EdgeInsets.all(4.0),
                                 child: Text(
                                   "Engage. Socialize. Connect.",
                                   style: TextStyle(
@@ -150,193 +183,39 @@ class _IntroPageState extends State<IntroPage> {
         
           SliverList(
             delegate: SliverChildListDelegate([
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
-                child: ListView(
-                  shrinkWrap: true,
+              Container(
+                height: size.height,
+                child: PageView(
+                  scrollDirection: Axis.vertical,
                   physics: ScrollPhysics(),
                   children: <Widget>[
                     // First
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 72),
-                      child: Wrap(
-                        alignment: WrapAlignment.center,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                            width: size.width * 0.3,
-                            height: size.height * 0.5,
-                            child: Image.asset(
-                              "images/2.jpeg",
-                              fit: BoxFit.cover,                              
-                            ),
-                          ),
-                          Container(
-                            width: size.width * 0.5,
-                            height: size.height * 0.5,                            
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 32.0),
-                              child: Material(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(16),
-                                // elevation: 2,
-                                child: InkWell(
-                                  onTap: () {},
-                                  onHover: (bool x) {
-
-                                  },
-                                  hoverColor: Theme.of(context).accentColor.withOpacity(0.5),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      FadeInDown(
-                                        animate: true,
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(16.0),
-                                          child: Text(
-                                            "A new way of being active",
-                                            style: textStyle(28, true),
-                                            textAlign: TextAlign.justify,
-                                          ),
-                                        ),
-                                      ),
-                                      ElasticInLeft(
-                                        duration: Duration(milliseconds: 2000),
-                                        delay: Duration(milliseconds: 2000),
-                                        child: Flexible(
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(16.0),
-                                            child: Text(
-                                              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
-                                              style: TextStyle(
-                                                fontSize: 16,
-                                                fontFamily: "Raleway"
-                                              ),
-                                              textAlign: TextAlign.justify,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Container(                                          
-                                        decoration: BoxDecoration(
-                                          color: Colors.green[400],
-                                        ),
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: MySmallText(
-                                            text: "Buttcheek",
-                                          ),
-                                        ),
-                                      )
-                                    ]
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                    MySliverDelegate(
+                      imagePath: "assets/images/2.jpeg",
+                      title: "A new way of being active",
+                      subtitle: "Edo State Government desires active citizens. Engage Ministries, Departments and Agencies directly for prompt services, accurate information and constructive criticisms.",
+                      callToAction: "Get started.",
                     ),
-
-                    // Second
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 72),
-                      child: Wrap(
-                        alignment: WrapAlignment.center,
-                        children: [
-                          Container(
-                            width: size.width * 0.5,
-                            height: size.height * 0.5,
-                            child: Padding(
-                              padding: const EdgeInsets.all(32.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(16.0),
-                                    child: Text(
-                                      "A new way of being active",
-                                      style: textStyle(28, true),
-                                      textAlign: TextAlign.left,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(16.0),
-                                    child: Text(
-                                      "Engage your State government socially and responsibly.",
-                                      style: textStyle(14, true),
-                                      textAlign: TextAlign.left,
-                                    ),
-                                  ),
-                                ]
-                              ),
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                              color: Colors.grey[200]
-                            ),
-                            width: size.width * 0.3,
-                            height: size.height * 0.5,
-                            child: Image.asset(
-                              "images/4.jpeg",
-                              fit: BoxFit.cover,                              
-                            ),
-                          ),
-                        ],
-                      ),
+                    
+                    // Second.
+                    MySliverDelegate(
+                      imagePath: "assets/images/4.jpeg",
+                      title: "Connect with verified SMEs around you.",
+                      useImageOnLeftSide: false,
+                      subtitle: "Edo State Government desires active citizens. Engage Ministries, Departments and Agencies directly for prompt services, accurate information and constructive criticisms.",
+                      callToAction: "Get started.",
                     ),
-
-                    // Third
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 32),
-                      child: Wrap(
-                        alignment: WrapAlignment.start,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                            width: size.width * 0.5,
-                            height: size.height * 0.5,
-                            child: Image.asset(
-                              "images/6.jpeg",
-                              fit: BoxFit.cover,                              
-                            ),
-                            padding: EdgeInsets.zero,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(64.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(16.0),
-                                  child: Text(
-                                    "A new way of being active",
-                                    style: textStyle(28, true),
-                                    textAlign: TextAlign.left,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(16.0),
-                                  child: Text(
-                                    "Engage your State government socially and responsibly.",
-                                    style: textStyle(14, true),
-                                    textAlign: TextAlign.left,
-                                  ),
-                                ),
-                              ]
-                            ),
-                          ),
-                        ],
-                      ),
+                    
+                    // Third.
+                    MySliverDelegate(
+                      imagePath: "assets/images/6.jpeg",
+                      title: "Connect with verified SMEs around you.",
+                      subtitle: "Edo State Government desires active citizens. Engage Ministries, Departments and Agencies directly for prompt services, accurate information and constructive criticisms.",
+                      callToAction: "Get started.",
+                      useHorizontalImagePadding: false,
                     ),
                   
-                    // Fourth
+                    // Fourth.
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 32),
                       child: Wrap(
@@ -381,13 +260,189 @@ class _IntroPageState extends State<IntroPage> {
                         ],
                       ),
                     ),
+                  
+                    // Footer
+                    // Container(
+                    //   // padding: EdgeInsets.only(left:40, right:40, ),
+                    //   color: Theme.of(context).primaryColor.withRed(200),//Colors.black,
+                    //   height: size.height * 0.4,
+                    //   child: Column(
+                    //     crossAxisAlignment: CrossAxisAlignment.center,
+                    //     children: <Widget>[
+                    //       Padding(
+                    //         padding: const EdgeInsets.only(top: 30),
+                    //         child: Text(
+                    //           'Copyright ©2021, All Rights Reserved',
+                    //           style: TextStyle(
+                    //             color: Colors.white
+                    //           )
+                    //         ),
+                    //       ),
+                    //       Text('Powered by Intelytics', style:TextStyle(color: Colors.white)),
+                    //     ],
+                    //   ),
+                    // ),
                   ]
                 ),
-              )
+              ),
+              Container(
+                // padding: EdgeInsets.only(left:40, right:40, ),
+                color: Theme.of(context).primaryColor.withRed(200),//Colors.black,
+                height: size.height * 0.4,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(top: 30),
+                      child: Text(
+                        'Copyright ©2021, All Rights Reserved',
+                        style: TextStyle(
+                          color: Colors.white
+                        )
+                      ),
+                    ),
+                    Text('Powered by Intelytics', style:TextStyle(color: Colors.white)),
+                  ],
+                ),
+              ),
             ])
           )
         ]
       )
+    );
+  }
+}
+
+class MySliverDelegate extends StatefulWidget {
+  const MySliverDelegate({Key key, this.imagePath, this.useImageOnLeftSide:true, this.useHorizontalImagePadding: true, this.title, this.subtitle, this.callToAction}) : super(key: key);
+
+  final String imagePath;
+  final bool useImageOnLeftSide;
+  final bool useHorizontalImagePadding;
+  final String title;
+  final String subtitle;
+  final String callToAction;
+
+  @override
+  _MySliverDelegateState createState() => _MySliverDelegateState();
+}
+
+class _MySliverDelegateState extends State<MySliverDelegate> {
+  
+  Size size;
+  String subtitle;
+
+  @override
+  void initState() { 
+    super.initState();
+        
+    subtitle = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book";
+  }
+
+  Widget imageContainer () {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+      ),
+      width: size.width * 0.3,
+      height: size.height * 0.5,
+      child: Image.asset(
+        widget.imagePath,
+        fit: BoxFit.cover,                              
+      ),
+    );
+  }
+
+  Widget textContainer () {
+
+    return Container(
+      width: size.width * 0.5,
+      height: size.height * 0.5,                            
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 32.0),
+        child: Material(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          // elevation: 2,
+          child: InkWell(
+            onTap: () {},
+            onHover: (bool x) {
+
+            },
+            hoverColor: Theme.of(context).accentColor.withOpacity(0.1),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                FadeInDown(
+                  animate: true,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: SelectableText(
+                      widget.title,
+                      style: textStyle(28, true),
+                      textAlign: TextAlign.justify,
+                    ),
+                  ),
+                ),
+                ElasticInLeft(
+                  duration: Duration(milliseconds: 2000),
+                  delay: Duration(milliseconds: 2000),
+                  child: Flexible(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: SelectableText(
+                        widget.subtitle ?? subtitle,
+                        style: TextStyle(
+                          fontSize: 16
+                        ),
+                        textAlign: TextAlign.justify,
+                      ),
+                    ),
+                  ),
+                ),
+                // Call to action.
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                  child: Container(                                          
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).primaryColor,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(64.0),
+                      child: MySmallText(
+                        text: widget.callToAction ?? "Know your Government Agencies. Connect and engage. It's all free.",
+                        bold: true,
+                        color: Colors.white,
+                      )
+                    )
+                  )
+                )
+              ]
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build (BuildContext context) {    
+
+    size = MediaQuery.of(context).size;
+
+    return Container(
+      height: size.height,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 72),
+        child: Wrap(
+          alignment: WrapAlignment.center,
+          children: [
+            widget.useImageOnLeftSide ? imageContainer(): textContainer(),
+
+            widget.useImageOnLeftSide ? textContainer(): imageContainer()
+          ],
+        ),
+      ),
     );
   }
 }
