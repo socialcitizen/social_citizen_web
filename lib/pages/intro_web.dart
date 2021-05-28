@@ -326,8 +326,9 @@ class _IntroPageState extends State<IntroPage> with SingleTickerProviderStateMix
             // )
           ),
         
-          SliverFixedExtentList(
-            itemExtent: size.height * 0.75,
+          // SliverFixedExtentList(
+          SliverList(
+            // itemExtent: size.height * 0.7,
             delegate: SliverChildListDelegate([
               // First
               MySliverDelegate(
@@ -378,12 +379,153 @@ class _IntroPageState extends State<IntroPage> with SingleTickerProviderStateMix
                 // padding: EdgeInsets.only(left:40, right:40, ),
                 // color: Theme.of(context).primaryColor.withRed(200),
                 color: Colors.black,
-                height: size.height * 0.1,
+                height: size.height * 0.4,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.only(top: 30),
+                      padding: EdgeInsets.all(32),
+                      child: Row(
+                        children: [
+                          Expanded(
+                                                      child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: MySmallText(
+                                    text: "About",
+                                    color: Colors.white,
+                                    alignment: TextAlign.left,
+                                  ),
+                                ),
+
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: MySmallText(
+                                    text: "FAQ",
+                                    color: Colors.white,
+                                    alignment: TextAlign.left
+                                  ),
+                                ),
+
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: MySmallText(
+                                    text: "Feedback",
+                                    color: Colors.white,
+                                    alignment: TextAlign.left
+                                  ),
+                                )
+                              ]
+                            ),
+                          ),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: MySmallText(
+                                    text: "Edo State Ministry of Finance",
+                                    color: Colors.white,
+                                    alignment: TextAlign.left
+                                  ),
+                                ),
+
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: MySmallText(
+                                    text: "Edo State Internal Revenue Service",
+                                    color: Colors.white,
+                                    alignment: TextAlign.left
+                                  ),
+                                ),
+
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: MySmallText(
+                                    text: "Edo State Ministry of Information",
+                                    color: Colors.white,
+                                    alignment: TextAlign.left
+                                  ),
+                                )
+                              ]
+                            ),
+                          ),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: MySmallText(
+                                    text: "Office of the Governor",
+                                    color: Colors.white,
+                                    alignment: TextAlign.left
+                                  ),
+                                ),
+
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: MySmallText(
+                                    text: "Office of the Auditor General",
+                                    color: Colors.white,
+                                    alignment: TextAlign.left
+                                  ),
+                                ),
+
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: MySmallText(
+                                    text: "SMEs",
+                                    color: Colors.white,
+                                    alignment: TextAlign.left
+                                  ),
+                                )
+                              ]
+                            ),
+                          ),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: MySmallText(
+                                    text: "Report Abuse",
+                                    color: Colors.white,
+                                    alignment: TextAlign.left
+                                  ),
+                                ),
+
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: MySmallText(
+                                    text: "Privacy Policy",
+                                    color: Colors.white,
+                                    alignment: TextAlign.left
+                                  ),
+                                ),
+
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: MySmallText(
+                                    text: "Terms of Use",
+                                    color: Colors.white,
+                                    alignment: TextAlign.left
+                                  ),
+                                )
+                              ]
+                            ),
+                          )
+                        ]
+                      ),
+                    ),
+
+                    Padding(
+                      padding: const EdgeInsets.all(16),
                       child: Text(
                         'Copyright ©2021, All Rights Reserved',
                         style: TextStyle(
@@ -393,133 +535,9 @@ class _IntroPageState extends State<IntroPage> with SingleTickerProviderStateMix
                     ),
                     Text('Powered by Intelytics', style:TextStyle(color: Colors.white)),
 
-                    Padding(
-                      padding: EdgeInsets.all(32),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: MySmallerText(
-                                    text: "Link",
-                                    color: Colors.white
-                                  ),
-                                ),
-
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: MySmallerText(
-                                    text: "Link",
-                                    color: Colors.white
-                                  ),
-                                ),
-
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: MySmallerText(
-                                    text: "Link",
-                                    color: Colors.white
-                                  ),
-                                )
-                              ]
-                            ),
-                          ),
-                          Expanded(
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: MySmallerText(
-                                    text: "Link",
-                                    color: Colors.white
-                                  ),
-                                ),
-
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: MySmallerText(
-                                    text: "Link",
-                                    color: Colors.white
-                                  ),
-                                ),
-
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: MySmallerText(
-                                    text: "Link",
-                                    color: Colors.white
-                                  ),
-                                )
-                              ]
-                            ),
-                          ),
-                          Expanded(
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: MySmallerText(
-                                    text: "Link",
-                                    color: Colors.white
-                                  ),
-                                ),
-
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: MySmallerText(
-                                    text: "Link",
-                                    color: Colors.white
-                                  ),
-                                ),
-
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: MySmallerText(
-                                    text: "Link",
-                                    color: Colors.white
-                                  ),
-                                )
-                              ]
-                            ),
-                          ),
-                          Expanded(
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: MySmallerText(
-                                    text: "Link",
-                                    color: Colors.white
-                                  ),
-                                ),
-
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: MySmallerText(
-                                    text: "Link",
-                                    color: Colors.white
-                                  ),
-                                ),
-
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: MySmallerText(
-                                    text: "Link",
-                                    color: Colors.white
-                                  ),
-                                )
-                              ]
-                            ),
-                          )
-                        ]
-                      ),
-                    )
                   ],
                 ),
               ),
-
             ])
           )
         ]
@@ -574,19 +592,21 @@ class _MySliverDelegateState extends State<MySliverDelegate> {
 
   Widget textContainer () {
 
-    List<Color> colors = widget.useImageOnLeftSide ? [Colors.white, Colors.red, Colors.brown, Colors.green, Colors.grey]: [Colors.grey, Colors.green, Colors.brown, Colors.red, Colors.white];
+    List<Color> topColors = widget.useImageOnLeftSide ? [Colors.white, Colors.black]: [Colors.black, Colors.white];
+    List<Color> bottomColors = widget.useImageOnLeftSide ? [Colors.white, Colors.red, Colors.brown, Colors.green, Colors.grey]: [Colors.grey, Colors.green, Colors.brown, Colors.red, Colors.white];
 
     RectangleBorderSides borders = RectangleBorderSides.only(
       top: DynamicBorderSide(
-        width: 5,
+        width: 3,
         gradient: LinearGradient(
-          colors: [Colors.brown, Colors.red, Colors.grey, Colors.green, Colors.white]
+          // colors: [Colors.brown, Colors.red, Colors.grey, Colors.green, Colors.white],
+          colors: topColors
         ),
       ),
       bottom: DynamicBorderSide(
         width: 3,
         gradient: LinearGradient(
-          colors: colors
+          colors: bottomColors
         ),
       )
     );
@@ -612,14 +632,14 @@ class _MySliverDelegateState extends State<MySliverDelegate> {
           borderSides: borders,
         ),
         child: Padding(
-          padding: const EdgeInsets.all(32.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               FadeInDown(
                 animate: true,
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: SelectableText(
                     widget.title,
                     style: textStyle(28, true),
@@ -632,7 +652,7 @@ class _MySliverDelegateState extends State<MySliverDelegate> {
                   duration: Duration(milliseconds: 2000),
                   delay: Duration(milliseconds: 2000),
                   child: Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: SelectableText(
                       widget.subtitle ?? subtitle,
                       style: TextStyle(
@@ -704,9 +724,9 @@ class _MySliverDelegateState extends State<MySliverDelegate> {
       widget.useImageOnLeftSide ? textContainer(): imageContainer()
     ];
     return Container(
-      height: size.height,
+      height: size.height * 0.75,
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 16, horizontal: hPadding),
+        padding: EdgeInsets.symmetric(vertical: 4, horizontal: hPadding),
         child: Wrap(
           alignment: widget.useHorizontalImagePadding ? WrapAlignment.center: WrapAlignment.start,
           runAlignment: WrapAlignment.spaceEvenly,
