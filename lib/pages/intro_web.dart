@@ -26,31 +26,7 @@ class IntroPage extends StatefulWidget {
 
 class _IntroPageState extends State<IntroPage> with SingleTickerProviderStateMixin {
   
-  Animatable<Color> background = TweenSequence<Color>(
-    [
-      TweenSequenceItem(
-        weight: 1.0,
-        tween: ColorTween(
-          begin: Colors.red,
-          end: Colors.green,
-        ),
-      ),
-      TweenSequenceItem(
-        weight: 1.0,
-        tween: ColorTween(
-          begin: Colors.green,
-          end: Colors.blue,
-        ),
-      ),
-      TweenSequenceItem(
-        weight: 1.0,
-        tween: ColorTween(
-          begin: Colors.blue,
-          end: Colors.pink,
-        ),
-      ),
-    ],
-  );
+  Animatable<Color> background;
 
   List<String> imagePaths = [
     "assets/images/13.jpeg",
@@ -117,7 +93,7 @@ class _IntroPageState extends State<IntroPage> with SingleTickerProviderStateMix
   ];
   int swiperIndex;
   SwiperController swiperController;
-  AnimationController _controller;
+  AnimationController controller;
 
   @override
   void initState() {
@@ -132,7 +108,7 @@ class _IntroPageState extends State<IntroPage> with SingleTickerProviderStateMix
       swiperController.startAutoplay();
     });
 
-    _controller = AnimationController(
+    controller = AnimationController(
       duration: const Duration(seconds: 10),
       vsync: this,
     )..repeat();
@@ -142,6 +118,50 @@ class _IntroPageState extends State<IntroPage> with SingleTickerProviderStateMix
   Widget build (BuildContext context) {
     
     Size size = MediaQuery.of(context).size;
+
+    background = TweenSequence<Color>(
+      [
+        TweenSequenceItem(
+          weight: 1.0,
+          tween: ColorTween(
+            begin: Theme.of(context).primaryColor,
+            end: Theme.of(context).accentColor,
+          ),
+        ),
+        TweenSequenceItem(
+          weight: 1.0,
+          tween: ColorTween(
+            // begin: Theme.of(context).accentColor,
+            begin: Theme.of(context).primaryColor,
+            end: Colors.blue,
+          ),
+        ),
+        TweenSequenceItem(
+          weight: 1.0,
+          tween: ColorTween(
+            // begin: Colors.blue,
+            begin: Theme.of(context).primaryColor,
+            end: Colors.pink,
+          ),
+        ),
+        TweenSequenceItem(
+          weight: 1.0,
+          tween: ColorTween(
+            // begin: Colors.black,
+            begin: Theme.of(context).primaryColor,
+            end: Colors.black,
+          ),
+        ),
+        TweenSequenceItem(
+          weight: 1.0,
+          tween: ColorTween(
+            // begin: Colors.black,
+            begin: Theme.of(context).primaryColor,
+            end: Colors.white,
+          ),
+        ),
+      ],
+    );
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -172,7 +192,7 @@ class _IntroPageState extends State<IntroPage> with SingleTickerProviderStateMix
             ),
             // backgroundColor: Colors.green,
             // backgroundColor: Theme.of(context).primaryColor.withOpacity(0.5),
-            backgroundColor: background.evaluate(AlwaysStoppedAnimation(_controller.value)),
+            backgroundColor: background.evaluate(AlwaysStoppedAnimation(controller.value)),
             pinned: true,
             // floating: true,
             // snap: true,
@@ -208,7 +228,7 @@ class _IntroPageState extends State<IntroPage> with SingleTickerProviderStateMix
               // stretchModes: [StretchMode.fadeTitle],
               titlePadding: EdgeInsets.zero,
               background: Padding(
-                padding: const EdgeInsets.fromLTRB(72, 72, 72, 0),
+                padding: const EdgeInsets.fromLTRB(72, 96, 72, 96),
                 // child: Image.asset(
                 //   "images/1.jpg",
                 //   fit: BoxFit.cover
@@ -314,7 +334,9 @@ class _IntroPageState extends State<IntroPage> with SingleTickerProviderStateMix
                 imagePath: "assets/images/2.jpeg",
                 title: "A new way of being active",
                 subtitle: "Edo State Government desires active citizens. Engage Ministries, Departments and Agencies directly for prompt services, accurate information and constructive criticisms.",
-                callToAction: "Get started.",
+                callToAction: "Become Active Today.",
+                background: background,
+                controller: controller,
               ),
               
               // Second.
@@ -323,7 +345,9 @@ class _IntroPageState extends State<IntroPage> with SingleTickerProviderStateMix
                 title: "Connect with verified SMEs around you.",
                 useImageOnLeftSide: false,
                 subtitle: "Edo State Government desires active citizens. Engage Ministries, Departments and Agencies directly for prompt services, accurate information and constructive criticisms.",
-                callToAction: "Get started.",
+                callToAction: "Connect Right Away.",
+                background: background,
+                controller: controller,
               ),
                 
               // Third.
@@ -331,8 +355,10 @@ class _IntroPageState extends State<IntroPage> with SingleTickerProviderStateMix
                 imagePath: "assets/images/6.jpeg",
                 title: "Find verified jobs that match your skills.",
                 subtitle: "Edo State Government desires active citizens. Engage Ministries, Departments and Agencies directly for prompt services, accurate information and constructive criticisms.",
-                callToAction: "Get started.",
+                callToAction: "Start Searching.",
                 useHorizontalImagePadding: true,
+                background: background,
+                controller: controller,
               ),
             
               // Fourth.
@@ -340,9 +366,11 @@ class _IntroPageState extends State<IntroPage> with SingleTickerProviderStateMix
                 imagePath: "assets/images/7.jpeg",
                 title: "Do Tier 1 Banking on the fly.",
                 subtitle: "When you signup, you get a Tier 1 bank account instantly from our partner banks.",
-                callToAction: "Get started.",
+                callToAction: "Start Banking.",
                 useImageOnLeftSide: false,
                 useHorizontalImagePadding: true,
+                background: background,
+                controller: controller,
               ),
               
               // Footer
@@ -501,7 +529,7 @@ class _IntroPageState extends State<IntroPage> with SingleTickerProviderStateMix
 }
 
 class MySliverDelegate extends StatefulWidget {
-  const MySliverDelegate({Key key, this.imagePath, this.useImageOnLeftSide:true, this.useHorizontalImagePadding: true, this.title, this.subtitle, this.callToAction}) : super(key: key);
+  const MySliverDelegate({Key key, this.imagePath, this.useImageOnLeftSide:true, this.useHorizontalImagePadding: true, this.title, this.subtitle, this.callToAction, this.background, this.controller}) : super(key: key);
 
   final String imagePath;
   final bool useImageOnLeftSide;
@@ -509,6 +537,8 @@ class MySliverDelegate extends StatefulWidget {
   final String title;
   final String subtitle;
   final String callToAction;
+  final Animatable<Color> background;
+  final AnimationController controller;
 
   @override
   _MySliverDelegateState createState() => _MySliverDelegateState();
@@ -614,22 +644,49 @@ class _MySliverDelegateState extends State<MySliverDelegate> {
                 ),
               ),
               // Call to action.
-              // Padding(
-              //   padding: const EdgeInsets.symmetric(horizontal: 64.0),
-              //   child: Container(
-              //     decoration: BoxDecoration(
-              //       color: Theme.of(context).primaryColor,
-              //     ),
-              //     child: Padding(
-              //       padding: const EdgeInsets.all(16.0),
-              //       child: MySmallText(
-              //         text: widget.callToAction ?? "Know your Government Agencies. Connect and engage. It's all free.",
-              //         bold: true,
-              //         color: Colors.white,
-              //       )
-              //     )
-              //   )
-              // )
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Flexible(
+                      flex: 2,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: widget.background.evaluate(AlwaysStoppedAnimation(widget.controller.value)),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Text(
+                              widget.callToAction,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: CustomElevatedButton(
+                        text: "Get Started",
+                        textcolor: Colors.white,
+                        backgroundcolor: Theme.of(context).primaryColor,
+                        onPressed: () {
+                          Navigator.pushNamed(context, "/signup");
+                        },
+                      ),
+                    )
+                  ],
+                ),
+              )
             ]
           ),
         )
