@@ -29,7 +29,8 @@ class _ProfileState extends State<Profile> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: NavLinks(),
+        title: Image.asset("assets/images/logo_no_bg.png", width: size.width * 0.09, height: size.height * 0.09),
+        actions:[ NavLinks()],
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(
           color: Theme.of(context).accentColor,
@@ -55,7 +56,17 @@ class _ProfileState extends State<Profile> {
                         child: Column(
                           children: [
                             // LinearProgressIndicator(),
+                            SizedBox(
+                              height: size.height * 0.05,
+                            ),
                             Indicator(),
+                            SizedBox(
+                              height: size.height * 0.03,
+                            ),
+                            Text('Profile completion status', textAlign: TextAlign.center, style:TextStyle(fontWeight: FontWeight.bold)),
+                            SizedBox(
+                              height: size.height * 0.01,
+                            ),
                             CustomizedListTile(
                             color: Theme.of(context).accentColor,
                             onTap: () {

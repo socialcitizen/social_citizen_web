@@ -18,7 +18,8 @@ class _NewThreadState extends State<NewThread> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
     appBar: AppBar(
-      title: NavLinks(),
+      title: Image.asset("assets/images/logo_no_bg.png", width: size.width * 0.09, height: size.height * 0.09),
+        actions:[ NavLinks()],
       backgroundColor: Colors.white,
         iconTheme: IconThemeData(
           color: Theme.of(context).accentColor,

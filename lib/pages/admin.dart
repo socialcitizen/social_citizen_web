@@ -67,7 +67,8 @@ class Admin extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
      return Scaffold(
        appBar: AppBar(
-         title: NavLinks(),
+         title: Image.asset("assets/images/logo_no_bg.png", width: size.width * 0.09, height: size.height * 0.09),
+          actions:[ NavLinks()],
          backgroundColor: Colors.white,
         iconTheme: IconThemeData(
           color: Theme.of(context).accentColor,
@@ -103,9 +104,9 @@ class Admin extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[  
-                            Image.asset('assets/images/user.png', width: size.width * 0.15),                        
+                            Image.asset('assets/images/user.png', width: size.width * 0.08),                        
                             SizedBox(
-                              height: size.height * 0.06,
+                              height: size.height * 0.03,
                             ),
                             Text(currentItem['title'], 
                             style:  TextStyle(fontWeight: FontWeight.bold),

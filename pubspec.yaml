@@ -39,6 +39,11 @@ dependencies:
   clippy_flutter: ^1.1.1
   percent_indicator: ^3.0.1
   avatar_glow: ^2.0.1
+  shimmer: ^2.0.0
+  flutter_vector_icons: ^1.0.0
+  google_fonts: ^2.1.0
+  expansion_tile_card: ^2.0.0
+  morphable_shape: ^1.5.1
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +77,12 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  fonts:
+    - family: Raleway
+      fonts:
+        - asset: assets/fonts/Raleway/Raleway-Regular.ttf
+        - asset: assets/fonts/Raleway/Raleway-Italic.ttf
+          style: italic
   # fonts:
   #   - family: Schyler
   #     fonts:

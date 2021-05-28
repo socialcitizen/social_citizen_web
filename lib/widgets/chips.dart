@@ -48,7 +48,7 @@ chipList() {
       GestureDetector(
         child: Chips(
           label:'Men', color: Color(0xFFff6666))),
-      Chips(label: 'Eti-osa', color: Color(0xFF007f5c)),
+      Chips(label: 'Oredo', color: Color(0xFF007f5c)),
       Chips(label: 'Developer', color:  Color(0xFF5f65d3)),
       Chips(label: 'Single', color:  Color(0xFF19ca21)),
       Chips(label:'Doctor', color: Color(0xFF007f5c)),
@@ -78,3 +78,38 @@ chipList() {
 //  );
 // }
 
+
+
+// Container(
+//                 // padding: EdgeInsets.only(left:40, right:40, ),
+//                 color: Theme.of(context).primaryColor.withRed(200),//Colors.black,
+//                 height: size.height * 0.15,
+//                 child: Column(
+//                   crossAxisAlignment: CrossAxisAlignment.center,
+//                   children: <Widget>[
+//                     Padding(
+//                       padding: const EdgeInsets.only(top: 25),
+//                       child: Text(
+//                         'Copyright ©2021, All Rights Reserved',
+//                         style: TextStyle(
+//                           color: Colors.white
+//                         )
+//                       ),
+//                     ),
+//                     Text('Powered by Intelytics', style:TextStyle(color: Colors.white)),
+//                     Row(
+//                       mainAxisAlignment: MainAxisAlignment.center,
+//                       children: [
+//                         Text('Link 1', style:TextStyle(color: Colors.white)),
+//                         SizedBox(width:  size.width * 0.01),
+//                         Text('Link 2', style:TextStyle(color: Colors.white)),
+//                         SizedBox(width:  size.width * 0.01),
+//                         Text('Link 3', style:TextStyle(color: Colors.white)),
+//                         SizedBox(width:  size.width * 0.01),
+//                         Text('Link 4', style:TextStyle(color: Colors.white)),
+
+//                     ],
+//                     ),
+//                   ],
+//                 ),
+//               ),

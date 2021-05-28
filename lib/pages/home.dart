@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:social_citizen_web/pages/CUG_group.dart';
 import 'package:social_citizen_web/pages/job_search.dart';
 import 'package:social_citizen_web/widgets/chips.dart';
+import 'package:social_citizen_web/widgets/customized_tile.dart';
 import 'package:social_citizen_web/widgets/drawer.dart';
 import 'package:social_citizen_web/widgets/links.dart';
 import 'package:social_citizen_web/widgets/text.dart';
@@ -20,8 +21,8 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
   List<String> images = [
     'assets/images/market.jpg',
     'assets/images/jobs.jpg',
-    'assets/images/market.jpg',
-    'assets/images/jobs.jpg'
+    'assets/images/jobs again.jpg',
+    'assets/images/escalate.jpg'
   ];
 
   final List<Map<String, dynamic>> building = [
@@ -33,12 +34,12 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
     {
       'title': 'Job opportunities',
       'callToAction': '/postdetails',
-      'image': 'assets/images/jobs.jpg'
+      'image': 'assets/images/jobs again.jpg'
     },
     {
       'title': 'NAFDAC Recruitment',
       'callToAction': '/postdetails',
-      'image': 'assets/images/explanation.jpg'
+      'image': 'assets/images/jobs.jpg'
     },
     {
       'title': 'NCDC warns against human cluster',
@@ -81,8 +82,8 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: NavLinks(),
-        // elevation: 0,
+        title: Image.asset("assets/images/logo_no_bg.png", width: size.width * 0.09, height: size.height * 0.09),
+        actions:[ NavLinks()],
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(
           color: Theme.of(context).accentColor,
@@ -114,6 +115,10 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                   Expanded(
                     flex: 3,
                     child: Container(
+                      // decoration: BoxDecoration(
+                      //   // color: Colors.grey[200],
+                      //   borderRadius: BorderRadius.circular(20.0),
+                      // ),
                       // color: Colors.purple,
                       child: GridView.count(
                         // shrinkWrap: true,
@@ -128,8 +133,10 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                           return Card(
                             elevation: 2,
                             child: Material(
-                              shape: CircleBorder(),
-                              color: Colors.white,
+                              shape:  RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25.0),
+                              ),
+                              // color: Colors.black,
                               child: InkResponse(
                                 borderRadius: BorderRadius.circular(32),
                                 splashColor: Colors.grey,
@@ -146,11 +153,11 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                                         return Container();
                                       },
                                       closedElevation: 6.0,
-                                      closedShape: const RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.all(
-                                          Radius.circular(50),
-                                        ),
-                                      ),
+                                      // closedShape: const RoundedRectangleBorder(
+                                      //   borderRadius: BorderRadius.all(
+                                      //     Radius.circular(50),
+                                      //   ),
+                                      // ),
                                       closedColor: Theme.of(context)
                                           .colorScheme
                                           .secondary,
@@ -161,20 +168,53 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                                         // "Marketplaces", "Jobs", "Connect", "Escalate"
                                         switch (caption) {
                                           case "Marketplaces":
-                                            route = JobSearchPage();
+                                            route = JobSearchPage(
+                                            //   iconText: '',
+                                            //  icon: Icons.fiber_manual_record,
+                                              title: 'SME\'s World',
+                                              text: 'Search businesses',
+                                              text1: 'Business Name',
+                                              text2: 'Services of Business',
+                                              text3: 'Location',
+                                              text4: 'Contact',
+                                              caption: '',
+                                            );
                                             // routeName = MyPageStateNames.angel_home.toString();
                                             break;
                                           case "Jobs":
-                                            route = JobSearchPage();
+                                            route = JobSearchPage(
+                                            //   iconText: '',
+                                            //  icon: Icons.fiber_manual_record,
+                                              title: 'Job Opportunities',
+                                              text: 'Search jobs',
+                                              text1: 'Job Description',
+                                              text2: 'Job Requirement',
+                                              text3: 'Job Prerequisite',
+                                              text4: 'How to Apply',
+                                              caption: 'Apply',
+                                            );
                                             // routeName = MyPageStateNames.draax_home.toString();
                                             break;
                                           case "Connect":
-                                            route = JobSearchPage();
+                                            route = JobSearchPage(
+                                            //  iconText: 'Sort By nearest to me',
+                                            //  icon: Icons.filter_list,
+                                              title: 'Government Agencies',
+                                              text: 'Search government agencies',
+                                              text1: 'Name of Agency',
+                                              text2: 'Services',
+                                              text3: 'Address',
+                                              text4: 'Contact',
+                                              caption: '',
+                                            );
                                             // routeName = MyPageStateNames.school_home.toString();
                                             break;
                                           case "Escalate":
                                           default:
-                                            route = CUGGroupPage();
+                                            route = CUGGroupPage(
+                                              title: 'Escalation',
+                                              escalation: 'Add an Escalation',
+                                            );
                                           // routeName = MyPageStateNames.home.toString();
                                         }
                                         return SizedBox(
@@ -187,6 +227,11 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                                   }));
                                 },
                                 child: Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey[200],
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  // color: Colors.black,
                                   // height: size.height * 0.3,
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
@@ -197,7 +242,8 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                                         padding:
                                             const EdgeInsets.only(top: 3.0),
                                         child: Image.asset(
-                                          'assets/images/market.jpg',
+                                          image,
+                                          // 'assets/images/market.jpg',
                                           fit: BoxFit.fill,
                                         ),
                                         // , width: size.width * 0.15,),
@@ -237,49 +283,58 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                   Expanded(
                     flex: 6,
                     child: Container(
-                      // color: Colors.yellow,
-                      child: GridView.builder(
-                        shrinkWrap: true,
-                        // physics: ScrollPhysics(),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2),
-                        itemCount: building.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          final currentItem = building[index];
-                          return GestureDetector(
-                            onTap: () {
-                              // Navigator.pushNamed(
-                              //         context, currentItem['callToAction'])
-                              //     .toString();
-                            },
-                            child: Card(
-                              // color: Colors.blue,
-                              elevation: 2.0,
-                              child: Container(
-                                padding: EdgeInsets.only(top: 10.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: <Widget>[
-                                    Image.asset(currentItem['image'],
-                                        fit: BoxFit.fill),
-                                    SizedBox(
-                                      height: size.height * 0.02,
-                                    ),
-                                    MyTitleText(
-                                      text: currentItem['title'],
-                                      color: Theme.of(context).accentColor,
-                                    ),
-                                    // Text(
-                                    //   currentItem['suBTitle'],
-                                    //   // style:  TextStyle(fontWeight: FontWeight.bold),
-                                    //   textAlign: TextAlign.center,
-                                    // ),
-                                  ],
+                      // color: Colors.amber,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor.withOpacity(0.8),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(40.0),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: GridView.builder(
+                          shrinkWrap: true,
+                          // physics: ScrollPhysics(),
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2),
+                          itemCount: building.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            final currentItem = building[index];
+                            return GestureDetector(
+                              onTap: () {
+                                // Navigator.pushNamed(
+                                //         context, currentItem['callToAction'])
+                                //     .toString();
+                              },
+                              child: Card(
+                                // color: Colors.blue,
+                                elevation: 2.0,
+                                child: Container(
+                                  padding: EdgeInsets.only(top: 10.0),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: <Widget>[
+                                      Image.asset(currentItem['image'],
+                                          fit: BoxFit.fill),
+                                      SizedBox(
+                                        height: size.height * 0.02,
+                                      ),
+                                      MyTitleText(
+                                        text: currentItem['title'],
+                                        color: Theme.of(context).accentColor,
+                                      ),
+                                      // Text(
+                                      //   currentItem['suBTitle'],
+                                      //   // style:  TextStyle(fontWeight: FontWeight.bold),
+                                      //   textAlign: TextAlign.center,
+                                      // ),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                          );
-                        },
+                            );
+                          },
+                        ),
                       ),
                     ),
                   ),
@@ -307,6 +362,11 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                               // color: Colors.blue,
                               elevation: 2.0,
                               child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.grey[200],
+                                borderRadius: BorderRadius.circular(20.0),
+                              ),
+                                // color: Colors.blue,
                                 padding: EdgeInsets.only(top: 10.0),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,

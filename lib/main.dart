@@ -19,6 +19,8 @@ import 'package:social_citizen_web/pages/profile.dart';
 import 'package:social_citizen_web/pages/signup.dart';
 import 'package:social_citizen_web/pages/sme.dart';
 import 'package:social_citizen_web/widgets/admin_drawer.dart';
+import 'package:social_citizen_web/widgets/expansion_tile.dart';
+import 'package:social_citizen_web/widgets/side_nav.dart';
 import 'package:social_citizen_web/widgets/theme.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -51,7 +53,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {        
         '/': (context) => IntroPage(),
-        // '/': (context) =>  Profile(),
+        // '/': (context) =>  MyHomesPage(),
         '/login' : (context) => LoginPage(),        
         '/signup': (context) => SignUpPage(),
         '/jobsearch': (context) => JobSearchPage(),
