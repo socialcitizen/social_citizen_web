@@ -18,7 +18,7 @@ class MyHomeScreen extends StatefulWidget {
 }
 
 class _MyHomeScreenState extends State<MyHomeScreen> {
-  List<String> tileCaptions = ["Marketplaces", "Jobs", "Connect", "Escalate"];
+  List<String> tileCaptions = ["SMEs", "Jobs", "Connect", "Escalate"];
   List<String> images = [
     'assets/images/market.jpg',
     'assets/images/jobs.jpg',
