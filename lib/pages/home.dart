@@ -115,7 +115,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
 
     return Scaffold(
       appBar: MyAppBar.build(context),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[200],
       drawer: Drawer(
         child: MainDrawer(),
       ),
@@ -132,7 +132,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.elliptical(50, 50)),
-                  color: Colors.grey[100]
+                  color: Colors.white//grey[100]
                 ),
                 height: size.height * 0.1,
                 width: size.width * 0.5,
@@ -198,16 +198,18 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                 // Service Tiles.
                   Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(4),
-                      color: Color(0xFF19ca21).withOpacity(0.3),//Colors.grey[100]
+                      borderRadius: BorderRadius.circular(12),
+                      // color: Color(0xFF19ca21).withOpacity(0.3),
+                      color: Colors.white
                     ),
                     width: size.width * 0.25,
                     child: Card(
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4),
+                        borderRadius: BorderRadius.circular(16),
                       ),
                       elevation: 0,
-                      color: Color(0xFF19ca21).withOpacity(0.3),//Colors.grey[100],
+                      // color: Color(0xFF19ca21).withOpacity(0.3),
+                      color: Colors.white,
                       child: Padding(
                         padding: const EdgeInsets.all(32),
                         child: ListView.builder(
@@ -223,9 +225,9 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                             double radius = 32;
                             BorderRadiusGeometry containerBorderRadius = isEven ? BorderRadius.only(
                               topRight: Radius.circular(radius),
-                              bottomRight: Radius.circular(radius)
+                              bottomLeft: Radius.circular(radius)
                             ): BorderRadius.only(
-                              topLeft: Radius.circular(radius),
+                              topRight: Radius.circular(radius),
                               bottomLeft: Radius.circular(radius)
                             );
 
@@ -250,8 +252,6 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                                           switch (caption) {
                                             case "Marketplaces":
                                               route = JobSearchPage(
-                                                // iconText: '',
-                                                // icon: Icons.fiber_manual_record,
                                                 title: 'SME\'s World',
                                                 text: 'Search businesses',
                                                 text1: 'Business Name',
@@ -316,7 +316,8 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                                         ),
                                         alignment: isEven ? Alignment.centerRight:  Alignment.centerLeft
                                       ),
-                                      color: Color(0xFF19ca21).withOpacity(0.25)
+                                      // color: Color(0xFF19ca21).withOpacity(0.25)
+                                      color: Colors.grey[100]
                                     ),
                                     height: size.height * 0.15,
                                     padding: EdgeInsets.zero,
@@ -325,7 +326,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
                                         Align(
-                                          alignment: isEven ? Alignment.centerLeft: Alignment.centerRight,
+                                          alignment: isEven ? Alignment.center: Alignment.center,
                                           child: Padding(
                                             padding: const EdgeInsets.all(8.0),
                                             child: MySmallText(
@@ -367,7 +368,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                   Expanded(
                     flex: 2,
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16.0),
                       child: Scrollbar(
                         child: ListView.builder(
                           shrinkWrap: true,
@@ -613,9 +614,10 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                   // Ads
                   Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(4),
-                      color: Colors.grey[100]
+                      borderRadius: BorderRadius.circular(12),
+                      color: Colors.white
                     ),
+                    padding: const EdgeInsets.all(32),
                     height: size.height * 0.55,
                     width: size.width * 0.25,
                     child: Swiper(
