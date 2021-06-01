@@ -17,32 +17,19 @@ class MainDrawer extends StatelessWidget {
               color: Theme.of(context).accentColor, 
               width: double.infinity,
               padding: EdgeInsets.all(20.0),             
-              child: Center(               
-                child: Column(
-                  // mainAxisAlignment: MainAxisAlignment.center,
-                  // crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    CircleAvatar(
-                      radius: 50.0,
-                      backgroundImage: AssetImage('assets/images/user.png'),
-                    ),
-                    // SizedBox(
-                    //   height: size.height * 0.05,
-                    // ),
-                    // Text(
-                    //   'Orakwe Chiamaka',
-                    //   style: TextStyle(
-                    //     fontSize: 22.0,
-                    //     fontWeight: FontWeight.w800
-                    //     ),
-                    // ),
-                    // SizedBox(
-                    //   height: size.height * 0.05,
-                    // ),
+              // child: Center(               
+              //   child: Column(
+              //     // mainAxisAlignment: MainAxisAlignment.center,
+              //     // crossAxisAlignment: CrossAxisAlignment.center,
+              //     children: <Widget>[
+              //       CircleAvatar(
+              //         radius: 50.0,
+              //         backgroundImage: AssetImage('assets/images/user.png'),
+              //       ),
                     
-                  ],
-                ),
-              ) ,
+              //     ],
+              //   ),
+              // ) ,
               ),
               SizedBox(
                 height: size.height * 0.05,

@@ -178,7 +178,7 @@ class _MySMEState extends State<MySME> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Image.asset("assets/images/logo_no_bg.png", width: size.width * 0.09, height: size.height * 0.09),
+        title: Image.asset("assets/images/logo_no_bg.png", width: size.width * 0.06, height: size.height * 0.06),
         actions:[ NavLinks()],
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(

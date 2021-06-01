@@ -16,12 +16,36 @@ List<bool> selected = [true, false, false, false, false];
 
 class _SideBarState extends State<SideBar> {
   List<IconData> icon = [
-    Icons.add,
-    Icons.star,
+    Icons.edit,
+    Icons.lock,
+    Feather.key,
   ];
 
+  List<String> message = [
+    // Tooltip(message:
+    "Hello World",
+    // child: Icon(Icons.edit)
+    // ),
+    // Tooltip(message:
+    "Hello girl",
+    //  child: Icon(Icons.edit)
+    //  ),
+    // Tooltip(message:
+    "Hello World",
+    // child: Icon(Icons.edit)
+    // ),
+  ];
+
+  // List<String> iconName = [
+  //   'Edit Prfile',
+  //   'Be good',
+  //   'Be great',
+  //   'Be fashionable',
+  //   'Yeah'
+  // ]
+
   void select(int n) {
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < 3; i++) {
       if (i == n) {
         selected[i] = true;
       } else {
@@ -29,6 +53,7 @@ class _SideBarState extends State<SideBar> {
       }
     }
   }
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +98,7 @@ class _SideBarState extends State<SideBar> {
                   .map(
                     (e) => NavBarItem(
                       icon: e,
-                      message: 'Register Business',
+                      message: 'Edit Profile',
                       selected: selected[icon.indexOf(e)],
                       onTap: () {
                         setState(() {
@@ -93,10 +118,10 @@ class _SideBarState extends State<SideBar> {
 
 class NavBarItem extends StatefulWidget {
   final IconData icon;
+  final String message;
+  // final Tooltip icon;
   final Function onTap;
   final bool selected;
-  final String message;
-
   NavBarItem({
     this.message,
     this.icon,
@@ -210,7 +235,7 @@ class _NavBarItemState extends State<NavBarItem> with TickerProviderStateMixin {
                       size: 25.0,
                     ),
                   ),
-                  //  Icon(
+                  // Icon(
                   //   widget.icon,
                   //   color: _color.value,
                   //   size: 25.0,

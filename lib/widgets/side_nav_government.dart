@@ -3,10 +3,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-// final appTheme = ThemeData(
-//   primarySwatch: Colors.red,
-// );
-
 class SideBar extends StatefulWidget {
   @override
   _SideBarState createState() => _SideBarState();
@@ -16,12 +12,20 @@ List<bool> selected = [true, false, false, false, false];
 
 class _SideBarState extends State<SideBar> {
   List<IconData> icon = [
-    Icons.add,
-    Icons.star,
+    Icons.receipt,
+    Icons.miscellaneous_services,
   ];
 
+  // List<String> iconName = [
+  //   'Edit Prfile',
+  //   'Be good',
+  //   'Be great',
+  //   'Be fashionable',
+  //   'Yeah'
+  // ]
+
   void select(int n) {
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < 5; i++) {
       if (i == n) {
         selected[i] = true;
       } else {
@@ -29,6 +33,13 @@ class _SideBarState extends State<SideBar> {
       }
     }
   }
+  // void _IconName(PointerEvent details) {
+  //   setState(() {
+  //     iconName = Colors.red;
+  //     x = details.position.dx;
+  //     y = details.position.dy;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +84,7 @@ class _SideBarState extends State<SideBar> {
                   .map(
                     (e) => NavBarItem(
                       icon: e,
-                      message: 'Register Business',
+                      message: 'Search for fines',
                       selected: selected[icon.indexOf(e)],
                       onTap: () {
                         setState(() {
@@ -96,7 +107,6 @@ class NavBarItem extends StatefulWidget {
   final Function onTap;
   final bool selected;
   final String message;
-
   NavBarItem({
     this.message,
     this.icon,
@@ -210,7 +220,7 @@ class _NavBarItemState extends State<NavBarItem> with TickerProviderStateMixin {
                       size: 25.0,
                     ),
                   ),
-                  //  Icon(
+                  // Icon(
                   //   widget.icon,
                   //   color: _color.value,
                   //   size: 25.0,

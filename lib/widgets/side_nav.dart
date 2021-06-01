@@ -15,14 +15,12 @@ class SideBar extends StatefulWidget {
 List<bool> selected = [true, false, false, false, false];
 
 class _SideBarState extends State<SideBar> {
-  List<IconData> icon = [
-    // Icons.add,	
-    // Icons.add,	
-    Icons.forward,	    
+  List<IconData> icon = [ 
+    Icons.forward,       
+    Icons.visibility,
+    Icons.check_circle,	    	    
     Icons.swap_horiz,
-    Icons.grid_view,	
-    Feather.wind,	
-    Icons.add,    
+    Icons.receipt,    
     // Feather.folder,
     // Feather.monitor,
     // Feather.lock,
@@ -82,6 +80,7 @@ class _SideBarState extends State<SideBar> {
                   .map(
                     (e) => NavBarItem(
                       icon: e,
+                      message: 'Transfer to same bank',
                       selected: selected[icon.indexOf(e)],
                       onTap: () {
                         setState(() {
@@ -101,9 +100,11 @@ class _SideBarState extends State<SideBar> {
 
 class NavBarItem extends StatefulWidget {
   final IconData icon;
+  final String message;
   final Function onTap;
   final bool selected;
   NavBarItem({
+    this.message,
     this.icon,
     this.onTap,
     this.selected,
@@ -207,11 +208,20 @@ class _NavBarItemState extends State<NavBarItem> with TickerProviderStateMixin {
                 height: 80.0,
                 width: 101.0,
                 child: Center(
-                  child: Icon(
-                    widget.icon,
-                    color: _color.value,
-                    size: 25.0,
+                  child: 
+                  Tooltip(
+                    message: widget.message,
+                    child: Icon(
+                      widget.icon,
+                      color: _color.value,
+                      size: 25.0,
+                    ),
                   ),
+                  // Icon(
+                  //   widget.icon,
+                  //   color: _color.value,
+                  //   size: 25.0,
+                  // ),
                 ),
               ),
             ],

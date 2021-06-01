@@ -16,9 +16,7 @@ class Profile extends StatelessWidget {
             height: 20.0,
           ),
           
-          // SizedBox(
-          //   height: 20.0,
-          // ),
+         
           Expanded(
             child: Container(
               height: MediaQuery.of(context).size.height - 200,
@@ -103,24 +101,7 @@ class Profile extends StatelessWidget {
                               ),
                             ],
                           ),
-                          // Row(
-                          //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          //   children: [
-                          //     Row(
-                          //       children: [
-                          //         Text(
-                          //           '0098776543',
-                          //             style: GoogleFonts.raleway(
-                          //               fontSize: 20.0,
-                          //               fontWeight: FontWeight.bold,
-                          //               color: Colors.black),
-                          //         ),
-                          //         Icon(Icons.arrow_forward_sharp),
-                          //       ],
-                          //     ),
-                          //     Text(''),
-                          //   ],
-                          // )
+                          
                         ],
                       ),
                     ),
