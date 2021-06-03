@@ -219,145 +219,173 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                           physics: ScrollPhysics(),
                           itemCount: tileCaptions.length,
                           itemBuilder: (BuildContext context, int index) {
-                            String caption = tileCaptions[index];
-                            String image = images[index];
-                            bool isEven = index % 2 == 0;
-                            double radius = 32;
-                            BorderRadiusGeometry containerBorderRadius = isEven ? BorderRadius.only(
-                              topRight: Radius.circular(radius),
-                              bottomLeft: Radius.circular(radius)
-                            ): BorderRadius.only(
-                              topRight: Radius.circular(radius),
-                              bottomLeft: Radius.circular(radius)
-                            );
 
-                            return Card(
-                              color: Colors.white,
-                              // margin: const EdgeInsets.all(4.0),
-                              elevation: 2,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: containerBorderRadius,
-                              ),
-                              child: Material(
-                                borderRadius: containerBorderRadius,
-                                child: InkResponse(
-                                  borderRadius: containerBorderRadius,
-                                  splashColor: Colors.green,
-                                  radius: size.width * 0.3,
-                                  onTap: () async {
-                                    await Navigator.of(context).push(
-                                      MaterialPageRoute<void>(
-                                        builder: (BuildContext context) {
-                                          var route;
-                                          switch (caption) {
-                                            case "Marketplaces":
-                                              route = JobSearchPage(
-                                                title: 'SME\'s World',
-                                                text: 'Search businesses',
-                                                text1: 'Business Name',
-                                                text2: 'Services of Business',
-                                                text3: 'Location',
-                                                text4: 'Contact',
-                                                caption: '',
-                                              );
-                                              // routeName = MyPageStateNames.angel_home.toString();
-                                            break;
-                                            case "Jobs":
-                                              route = JobSearchPage(
-                                              //   iconText: '',
-                                              //  icon: Icons.fiber_manual_record,
-                                                title: 'Job Opportunities',
-                                                text: 'Search jobs',
-                                                text1: 'Job Description',
-                                                text2: 'Job Requirement',
-                                                text3: 'Job Prerequisite',
-                                                text4: 'How to Apply',
-                                                caption: 'Apply',
-                                              );
-                                              // routeName = MyPageStateNames.draax_home.toString();
-                                              break;
-                                            case "Connect":
-                                              route = JobSearchPage(
-                                              //  iconText: 'Sort By nearest to me',
-                                              //  icon: Icons.filter_list,
-                                                title: 'Government Agencies',
-                                                text: 'Search government agencies',
-                                                text1: 'Name of Agency',
-                                                text2: 'Services',
-                                                text3: 'Address',
-                                                text4: 'Contact',
-                                                caption: '',
-                                              );
-                                              // routeName = MyPageStateNames.school_home.toString();
-                                              break;
-                                            case "Escalate":
-                                            default:
-                                              route = CUGGroupPage(
-                                                // title: 'Escalation',
-                                                // escalation: 'Add an Escalation',
-                                              );
-                                            // routeName = MyPageStateNames.home.toString();
-                                          }
-                                          return SizedBox(
-                                            // height: 50,
-                                            // width: 30,
-                                            child: route,
-                                          );
-                                        },
-                                      )
-                                    );
-                                  },
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: containerBorderRadius,
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                          image
-                                        ),
-                                        alignment: isEven ? Alignment.centerRight:  Alignment.centerLeft
-                                      ),
-                                      // color: Color(0xFF19ca21).withOpacity(0.25)
-                                      color: Colors.grey[100]
-                                    ),
-                                    height: size.height * 0.15,
-                                    padding: EdgeInsets.zero,
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Align(
-                                          alignment: isEven ? Alignment.center: Alignment.center,
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: MySmallText(
-                                              text: caption,
-                                              color: Theme.of(context).accentColor,
-                                              bold: true,
-                                              alignment: TextAlign.center,
-                                            ),
-                                          ),
-                                        ),
-                                        
-                                        // Row(
-                                        //   children: [
-                                        //     Flexible(
-                                        //       child: Align(
-                                        //         alignment: isEven ? Alignment.centerLeft: Alignment.centerRight,
-                                        //         child: MySmallerText(
-                                        //           text: "Click here to see what's available for you",
-                                        //           alignment: TextAlign.left,
-                                        //         )
-                                        //       )
-                                        //     )
-                                        //   ]
-                                        // )
-                                      ],
-                                    ),
-                                  )
-                                )
+                            String caption = tileCaptions[index];
+                            // String image = images[index];
+                            // bool isEven = index % 2 == 0;
+                            // double radius = 32;
+                            Color color = [Color(0xFFff6666), Color(0xFF007f5c), Color(0xFF5f65d3), Color(0xFF19ca21)][index];
+
+                            return Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: OutlinedButton(
+                                onPressed: () {},
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: MySmallText(
+                                    text: caption,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(color),
+                                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(24)
+                                  ))
+                                ),
                               ),
                             );
-                          }                          
+                          }
+                          // itemBuilder: (BuildContext context, int index) {
+                          //   String caption = tileCaptions[index];
+                          //   String image = images[index];
+                          //   bool isEven = index % 2 == 0;
+                          //   double radius = 32;
+                          //   BorderRadiusGeometry containerBorderRadius = isEven ? BorderRadius.only(
+                          //     topRight: Radius.circular(radius),
+                          //     bottomLeft: Radius.circular(radius)
+                          //   ): BorderRadius.only(
+                          //     topRight: Radius.circular(radius),
+                          //     bottomLeft: Radius.circular(radius)
+                          //   );
+
+                          //   return Card(
+                          //     color: Colors.white,
+                          //     // margin: const EdgeInsets.all(4.0),
+                          //     elevation: 2,
+                          //     shape: RoundedRectangleBorder(
+                          //       borderRadius: containerBorderRadius,
+                          //     ),
+                          //     child: Material(
+                          //       borderRadius: containerBorderRadius,
+                          //       child: InkResponse(
+                          //         borderRadius: containerBorderRadius,
+                          //         splashColor: Colors.green,
+                          //         radius: size.width * 0.3,
+                          //         onTap: () async {
+                          //           await Navigator.of(context).push(
+                          //             MaterialPageRoute<void>(
+                          //               builder: (BuildContext context) {
+                          //                 var route;
+                          //                 switch (caption) {
+                          //                   case "Marketplaces":
+                          //                     route = JobSearchPage(
+                          //                       title: 'SME\'s World',
+                          //                       text: 'Search businesses',
+                          //                       text1: 'Business Name',
+                          //                       text2: 'Services of Business',
+                          //                       text3: 'Location',
+                          //                       text4: 'Contact',
+                          //                       caption: '',
+                          //                     );
+                          //                     // routeName = MyPageStateNames.angel_home.toString();
+                          //                   break;
+                          //                   case "Jobs":
+                          //                     route = JobSearchPage(
+                          //                     //   iconText: '',
+                          //                     //  icon: Icons.fiber_manual_record,
+                          //                       title: 'Job Opportunities',
+                          //                       text: 'Search jobs',
+                          //                       text1: 'Job Description',
+                          //                       text2: 'Job Requirement',
+                          //                       text3: 'Job Prerequisite',
+                          //                       text4: 'How to Apply',
+                          //                       caption: 'Apply',
+                          //                     );
+                          //                     // routeName = MyPageStateNames.draax_home.toString();
+                          //                     break;
+                          //                   case "Connect":
+                          //                     route = JobSearchPage(
+                          //                     //  iconText: 'Sort By nearest to me',
+                          //                     //  icon: Icons.filter_list,
+                          //                       title: 'Government Agencies',
+                          //                       text: 'Search government agencies',
+                          //                       text1: 'Name of Agency',
+                          //                       text2: 'Services',
+                          //                       text3: 'Address',
+                          //                       text4: 'Contact',
+                          //                       caption: '',
+                          //                     );
+                          //                     // routeName = MyPageStateNames.school_home.toString();
+                          //                     break;
+                          //                   case "Escalate":
+                          //                   default:
+                          //                     route = CUGGroupPage(
+                          //                       // title: 'Escalation',
+                          //                       // escalation: 'Add an Escalation',
+                          //                     );
+                          //                   // routeName = MyPageStateNames.home.toString();
+                          //                 }
+                          //                 return SizedBox(
+                          //                   // height: 50,
+                          //                   // width: 30,
+                          //                   child: route,
+                          //                 );
+                          //               },
+                          //             )
+                          //           );
+                          //         },
+                          //         child: Container(
+                          //           decoration: BoxDecoration(
+                          //             borderRadius: containerBorderRadius,
+                          //             image: DecorationImage(
+                          //               image: AssetImage(
+                          //                 image
+                          //               ),
+                          //               alignment: isEven ? Alignment.centerRight:  Alignment.centerLeft
+                          //             ),
+                          //             // color: Color(0xFF19ca21).withOpacity(0.25)
+                          //             color: Colors.grey[100]
+                          //           ),
+                          //           height: size.height * 0.15,
+                          //           padding: EdgeInsets.zero,
+                          //           child: Column(
+                          //             mainAxisSize: MainAxisSize.min,
+                          //             mainAxisAlignment: MainAxisAlignment.start,
+                          //             children: [
+                          //               Align(
+                          //                 alignment: isEven ? Alignment.centerLeft: Alignment.centerRight,
+                          //                 child: Padding(
+                          //                   padding: isEven ? const EdgeInsets.fromLTRB(16, 16, 8, 8): const EdgeInsets.fromLTRB(8, 16, 16, 8.0),
+                          //                   child: MySmallText(
+                          //                     text: caption,
+                          //                     color: Theme.of(context).accentColor,
+                          //                     bold: true,
+                          //                     alignment: TextAlign.center,
+                          //                   ),
+                          //                 ),
+                          //               ),
+                                        
+                          //               // Row(
+                          //               //   children: [
+                          //               //     Flexible(
+                          //               //       child: Align(
+                          //               //         alignment: isEven ? Alignment.centerLeft: Alignment.centerRight,
+                          //               //         child: MySmallerText(
+                          //               //           text: "Click here to see what's available for you",
+                          //               //           alignment: TextAlign.left,
+                          //               //         )
+                          //               //       )
+                          //               //     )
+                          //               //   ]
+                          //               // )
+                          //             ],
+                          //           ),
+                          //         )
+                          //       )
+                          //     ),
+                          //   );
+                          // }                          
                         )
                       )
                     )

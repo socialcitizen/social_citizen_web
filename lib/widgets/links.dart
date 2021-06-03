@@ -19,10 +19,16 @@ class NavLinks extends StatelessWidget {
             cursor: SystemMouseCursors.click,
             child: InkWell(
               radius: size.width * 0.03,
-              child: MySmallText(
-                color: Theme.of(context).accentColor,
-                text: "HOME"
-              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.home),
+                  MySmallerText(
+                    color: Theme.of(context).accentColor,
+                    text: "HOME"
+                  ),
+                ]
+              ),      
               onTap: () {
                 Navigator.pushNamed(context, '/home');
               },
@@ -33,20 +39,54 @@ class NavLinks extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child:  MouseRegion(
             cursor: SystemMouseCursors.click,
-              child: GestureDetector(
-              child: MySmallText(
-                color: Theme.of(context).accentColor,
-                text: "LOG OUT"
+            child: InkWell(
+              radius: size.width * 0.03,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.logout_rounded),
+                  MySmallerText(
+                    color: Theme.of(context).accentColor,
+                    text: "LOG OUT",
+                    // bold: true,
+                  )
+                ]
               ),
+              onTap: () {
+                Navigator.pushNamed(context, '/login');
+              },
             ),
           ),
         ),
-        Container(
-          width: size.width * 0.03,
-          child:
-            MouseRegion(
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child:  MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: InkWell(
+              radius: size.width * 0.03,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.notifications),
+                  MySmallerText(
+                    color: Theme.of(context).accentColor,
+                    text: "NOTIFICATIONS"
+                  )
+                ]
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/notifications');
+              },
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            width: size.width * 0.03,
+            child: MouseRegion(
               cursor: SystemMouseCursors.click,
-              child: GestureDetector(
+              child: InkWell(
                 child: CircleAvatar(
                   backgroundImage: AssetImage('assets/images/8.jpg'),
                   backgroundColor: Colors.red,
@@ -55,15 +95,12 @@ class NavLinks extends StatelessWidget {
                   Navigator.pushNamed(context, '/profile');
                 },
               ),
-            ),              
+            ),       
+          ),
         ),
         
-        Padding(
-          padding: const EdgeInsets.all(3.0),
-          child: IconButton(
-            icon: Icon(Icons.notifications),
-            onPressed: () {},
-          )
+        SizedBox(
+          width: size.width * 0.05
         ),
       ],
     );
