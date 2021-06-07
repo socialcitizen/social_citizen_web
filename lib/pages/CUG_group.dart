@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_citizen_web/widgets/app_bar.dart';
 // import 'package:social_citizen_web/widgets/CUG_Row.dart';
 import 'package:social_citizen_web/widgets/chips.dart';
 // import 'package:social_citizen_web/widgets/custom_elevated_button.dart';
@@ -24,17 +25,7 @@ class CUGGroupPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          title,
-          style: TextStyle(color: Theme.of(context).accentColor),
-        ),
-        actions: [NavLinks()],
-        backgroundColor: Colors.white,
-        iconTheme: IconThemeData(
-          color: Theme.of(context).accentColor,
-        ),
-      ),
+      appBar: MyAppBar.build(context),
       backgroundColor: Colors.white,
       drawer: Drawer(
         child: MainDrawer(),

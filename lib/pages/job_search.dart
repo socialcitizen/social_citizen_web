@@ -50,12 +50,12 @@ class JobSearchPage extends StatelessWidget {
         //  leading: Text('Yo'),
         title: Text(
           title,
-          style: TextStyle(color: Theme.of(context).accentColor),
+          style: TextStyle(color: Color(0xff008753)),
         ),
         actions: [NavLinks()],
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(
-          color: Theme.of(context).accentColor,
+          color: Color(0xff008753),
         ),
       ),
       backgroundColor: Colors.white,

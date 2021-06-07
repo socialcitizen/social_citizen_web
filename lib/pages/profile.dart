@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_citizen_web/widgets/app_bar.dart';
 import 'package:social_citizen_web/widgets/dashboard_profile.dart';
 import 'package:social_citizen_web/widgets/drawer.dart';
 import 'package:social_citizen_web/widgets/links.dart';
@@ -16,15 +17,7 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        title: Image.asset("assets/images/logo_no_bg.png", width: size.width * 0.06, height: size.height * 0.06),
-        actions:[ NavLinks()],
-        elevation: 0,
-        backgroundColor: Colors.white,
-        iconTheme: IconThemeData(
-          color: Theme.of(context).accentColor,
-        ),
-      ),
+      appBar: MyAppBar.build(context),
       backgroundColor: Colors.white,
        drawer: Drawer(
          child: MainDrawer(),
