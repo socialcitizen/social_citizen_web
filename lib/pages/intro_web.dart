@@ -205,7 +205,7 @@ class _IntroPageState extends State<IntroPage> with SingleTickerProviderStateMix
                 padding: const EdgeInsets.all(4.0),
                 child: CustomElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, "/signup");
+                    Navigator.pushNamed(context, "/login");
                   },
                   text: "LOGIN",
                   backgroundcolor: Colors.white,

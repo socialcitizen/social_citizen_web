@@ -9,7 +9,7 @@ final ThemeData theme = ThemeData(
   // primaryColor: Color(0xff008753),
   primaryColor: primaryColor,
   accentColor: Color(0xff800000),
-  fontFamily: "Raleway",
+  fontFamily: "OpenSans", //"Raleway",
   scrollbarTheme: ScrollbarThemeData(
     showTrackOnHover: true,
     isAlwaysShown: true,

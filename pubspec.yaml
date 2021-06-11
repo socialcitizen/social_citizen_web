@@ -83,6 +83,24 @@ flutter:
         - asset: assets/fonts/Raleway/Raleway-Regular.ttf
         - asset: assets/fonts/Raleway/Raleway-Italic.ttf
           style: italic
+          
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins/Poppins-Italic.ttf
+          style: italic
+    - family: OpenSans
+      fonts:
+        - asset: assets/fonts/OpenSans/OpenSans-Regular.ttf
+        - asset: assets/fonts/OpenSans/OpenSans-Italic.ttf
+          style: italic
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat/Montserrat-Regular.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-Bold.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-ExtraBold.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-Italic.ttf
+          weight: 700
   # fonts:
   #   - family: Schyler
   #     fonts:

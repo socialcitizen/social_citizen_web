@@ -25,15 +25,15 @@ class CustomizedListTile extends StatelessWidget {
           text, 
           style: TextStyle(
             fontSize: 15.0, 
-            color: Theme.of(context).accentColor,                 
+            color: Colors.black,                 
             ),),
         leading: Icon(
           icon,
-          color: Theme.of(context).accentColor,
+          color: Colors.black,
         ),
         trailing:Icon(
           leadingIcon,
-          color: Theme.of(context).accentColor,
+          color: Colors.black,
         ),
       ),     
     );

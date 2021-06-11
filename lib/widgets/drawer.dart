@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:social_citizen_web/pages/CUG_group.dart';
+import 'package:social_citizen_web/pages/job_search.dart';
 import 'package:social_citizen_web/widgets/customized_tile.dart';
 
 
@@ -34,32 +36,105 @@ class MainDrawer extends StatelessWidget {
               SizedBox(
                 height: size.height * 0.05,
               ),             
+              // CustomizedListTile(
+              //   color: Theme.of(context).accentColor,
+              //   onTap: () {
+              //     Navigator.pushNamed(context, '/profile');
+              //   },
+              //   text: 'Profile',
+              //   icon: Icons.person,
+              // ),
+              // CustomizedListTile(
+              //   color: Theme.of(context).accentColor,
+              //   onTap: () {
+              //     Navigator.pushNamed(context, '/account');
+              //   },
+              //   text: 'Bank Account',
+              //   icon: Icons.account_balance_wallet,
+              // ),
+              // CustomizedListTile(
+              //   color: Theme.of(context).accentColor,
+              //   onTap: () {
+              //     Navigator.pushNamed(context, '/sme');
+              //   },
+              //   text: 'My SME',
+              //   icon: Icons.business,
+              // ),
+              // CustomizedListTile(
+              //   color: Theme.of(context).accentColor,
+              //   onTap: () {
+              //     Navigator.pushNamed(context, '/eportal');
+              //   },
+              //   text: 'E-government Portal',
+              //   icon: Icons.grid_view,
+              // ),
+              // CustomizedListTile(
+              //   color: Theme.of(context).accentColor,
+              //   onTap: () {
+              //     Navigator.pushNamed(context, '/notifications');
+              //   },
+              //   text: 'Notifications',
+              //   icon: Icons.notifications,
+              // ),
+              // CustomizedListTile(
+              //   color: Theme.of(context).accentColor,
+              //   onTap: () {
+              //     Navigator.pushNamed(context, '/admin');
+              //   },
+              //   text: 'Admin',
+              //   icon: Icons.admin_panel_settings,
+              // ),
+              // CustomizedListTile(
+              //   color: Theme.of(context).accentColor,
+              //   onTap: () {},
+              //   text: 'Log Out',
+              //   icon: Icons.logout,
+              // ),
               CustomizedListTile(
-                color: Theme.of(context).accentColor,
+                color: Colors.black,
                 onTap: () {
-                  Navigator.pushNamed(context, '/profile');
+                  Navigator.pushNamed(context, '/admin');
                 },
-                text: 'Profile',
+                text: 'Dashboard',
                 icon: Icons.person,
               ),
               CustomizedListTile(
-                color: Theme.of(context).accentColor,
+                color: Colors.black,
                 onTap: () {
-                  Navigator.pushNamed(context, '/account');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => 
+                    CUGGroupPage(
+                      title: 'Escalation',
+                      escalation: 'Add an Escalation',
+                    )),
+                  );
                 },
-                text: 'Bank Account',
-                icon: Icons.account_balance_wallet,
+                text: 'Forum',
+                icon: Icons.forum,
               ),
               CustomizedListTile(
-                color: Theme.of(context).accentColor,
+                color: Colors.black,
                 onTap: () {
-                  Navigator.pushNamed(context, '/sme');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => 
+                    JobSearchPage(                    
+                      title: 'Job Opportunities',
+                      text: 'Search jobs',
+                      text1: 'Job Description',
+                      text2: 'Job Requirement',
+                      text3: 'Job Prerequisite',
+                      text4: 'How to Apply',
+                      caption: 'Apply',
+                    )),
+                  );
                 },
-                text: 'My SME',
-                icon: Icons.business,
+                text: 'Jobs',
+                icon: Icons.business_center,
               ),
               CustomizedListTile(
-                color: Theme.of(context).accentColor,
+                color: Colors.black,
                 onTap: () {
                   Navigator.pushNamed(context, '/eportal');
                 },
@@ -67,26 +142,34 @@ class MainDrawer extends StatelessWidget {
                 icon: Icons.grid_view,
               ),
               CustomizedListTile(
-                color: Theme.of(context).accentColor,
+                color: Colors.black,
                 onTap: () {
-                  Navigator.pushNamed(context, '/notifications');
+                  Navigator.pushNamed(context, '/cug');
                 },
-                text: 'Notifications',
+                text: 'CUG',
+                icon: Icons.group,
+              ),
+              CustomizedListTile(
+                color: Colors.black,
+                onTap: () {
+                  Navigator.pushNamed(context, '/sme');
+                },
+                text: 'SME',
                 icon: Icons.notifications,
               ),
               CustomizedListTile(
-                color: Theme.of(context).accentColor,
+                color: Colors.black,
                 onTap: () {
-                  Navigator.pushNamed(context, '/admin');
+                  Navigator.pushNamed(context, '/account');
                 },
-                text: 'Admin',
-                icon: Icons.admin_panel_settings,
+                text: 'Bank Account',
+                icon: Icons.account_balance_wallet,
               ),
               CustomizedListTile(
-                color: Theme.of(context).accentColor,
+                color: Colors.black,
                 onTap: () {},
-                text: 'Log Out',
-                icon: Icons.logout,
+                text: 'Settings',
+                icon: Icons.settings,
               ),
               
           ],
