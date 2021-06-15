@@ -225,8 +225,8 @@ class _SignUpSketchPageState extends State<SignUpSketchPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Container(
-                              height: size.height * 0.07,
-                              width: size.width * 0.18,
+                              height: size.height * 0.05,
+                              width: size.width * 0.16,
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(8.0),
@@ -250,10 +250,10 @@ class _SignUpSketchPageState extends State<SignUpSketchPage> {
                               ),
                             ),
                             Container(
-                              height: size.height * 0.07,
-                              width: size.width * 0.18,
+                              height: size.height * 0.05,
+                              width: size.width * 0.16,
                               decoration: BoxDecoration(
-                                color: Colors.indigo,
+                                color: Colors.white,
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Row(
@@ -268,7 +268,7 @@ class _SignUpSketchPageState extends State<SignUpSketchPage> {
                                   ),
                                   MySmallText(
                                     text: 'Login with Facebook',
-                                    color: Colors.white,
+                                    color: Colors.black,
                                     bold: true,
                                   ),
                                 ],

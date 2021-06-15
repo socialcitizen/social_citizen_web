@@ -97,7 +97,7 @@ class MainDrawer extends StatelessWidget {
                 },
                 text: 'Dashboard',
                 icon: Icons.person,
-              ),
+              ),              
               CustomizedListTile(
                 color: Colors.black,
                 onTap: () {
@@ -116,19 +116,7 @@ class MainDrawer extends StatelessWidget {
               CustomizedListTile(
                 color: Colors.black,
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => 
-                    JobSearchPage(                    
-                      title: 'Job Opportunities',
-                      text: 'Search jobs',
-                      text1: 'Job Description',
-                      text2: 'Job Requirement',
-                      text3: 'Job Prerequisite',
-                      text4: 'How to Apply',
-                      caption: 'Apply',
-                    )),
-                  );
+                 Navigator.pushNamed(context, '/jobsearch');
                 },
                 text: 'Jobs',
                 icon: Icons.business_center,

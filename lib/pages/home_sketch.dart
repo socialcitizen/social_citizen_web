@@ -53,6 +53,13 @@ class _MyHomeSketchScreenState extends State<MyHomeSketchScreen> {
     MyAd()    
     ..imageURL = 'assets/images/shoes.jpg'
     ..title = 'Shoes',
+    MyAd()    
+    ..imageURL = 'assets/images/clothes.jpg'
+    ..title = 'Shoes',
+    MyAd()    
+    ..imageURL = 'assets/images/shoes.jpg'
+    ..title = 'Shoes',
+    
     // MyAd()    
     // ..imageURL = 'assets/images/8.jpg'
     // ..title = 'Classy outfit for women',
@@ -437,15 +444,74 @@ class _MyHomeSketchScreenState extends State<MyHomeSketchScreen> {
                                                     child: Padding(
                                                       padding: const EdgeInsets.all(8.0),
                                                       child: Text(
-                                                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget est ut lorem accumsan sodales at non metus. Suspendisse quis facilisis tellus, iaculis interdum arcu. Nullam in ex rutrum felis luctus placerat. Fusce elementum efficitur nisi, at porta erat ornare in. Praesent congue fermentum lacus, nec mattis libero mattis in. Sed velit neque, tempor ac sem at, ultricies hendrerit nisl. Proin dolor est, aliquet vel finibus a, blandit ut magna. Nullam sagittis elit in mauris efficitur, dignissim placerat nibh convallis.",
-                                                        maxLines: 5,
+                                                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget est ut lorem accumsan sodales at non metus. Suspendisse quis facilisis tellus, iaculis interdum arcu. Nullam in ex rutrum felis luctus placerat.",
+                                                        maxLines: 3,
                                                         style: TextStyle(
                                                           color: Colors.white
                                                         ),
                                                         overflow: TextOverflow.ellipsis
                                                       ),
                                                     )
-                                                  )
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      Padding(
+                                                              padding: const EdgeInsets.all(4.0),
+                                                              child: Row(
+                                                                children: [
+                                                                  Icon(
+                                                                    Icons.thumb_up_rounded,
+                                                                    color: Colors.indigo,
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: const EdgeInsets.all(2.0),
+                                                                    child: MySmallerText(
+                                                                      text: "451",
+                                                                      color: Colors.white,
+                                                                    ),
+                                                                  )
+                                                                ],
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding: const EdgeInsets.all(4.0),
+                                                              child: Row(
+                                                                children: [
+                                                                  Icon(
+                                                                    Icons.thumb_down_alt,
+                                                                    color: Colors.white,
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: const EdgeInsets.all(2.0),
+                                                                    child: MySmallerText(
+                                                                      text: "350",
+                                                                      color: Colors.white,
+                                                                    ),
+                                                                  )
+                                                                ],
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding: const EdgeInsets.all(4.0),
+                                                              child: Row(
+                                                                children: [
+                                                                  Icon(
+                                                                    Icons.comment_rounded,
+                                                                    color: Colors.white,
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: const EdgeInsets.all(2.0),
+                                                                    child: MySmallerText(
+                                                                      text: "28",
+                                                                      color: Colors.white,
+                                                                    ),
+                                                                  )
+                                                                ],
+                                                              ),
+                                                            ),
+
+                                                    ],
+                                                  ),
                                                 ]
                                               ),
                                             ),
@@ -469,7 +535,8 @@ class _MyHomeSketchScreenState extends State<MyHomeSketchScreen> {
                   Expanded(
                     flex: 1,
                     child: SingleChildScrollView(
-                      child: Container(                    
+                      child: Container(
+                        height: size.height,                    
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
                             topRight: Radius.circular(30),
@@ -479,6 +546,7 @@ class _MyHomeSketchScreenState extends State<MyHomeSketchScreen> {
                         ),
                         child: Column(
                           children: [
+                            
                             Padding(
                               padding: const EdgeInsets.fromLTRB(8, 35, 8, 0),
                               child: Text(
@@ -488,31 +556,33 @@ class _MyHomeSketchScreenState extends State<MyHomeSketchScreen> {
                             ),
                             Column(
                               children: [
-                                Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: 
-                              Container(
-                                decoration: BoxDecoration(
-                                  backgroundBlendMode: BlendMode.darken,
-                                  borderRadius: BorderRadius.circular(42),
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                      "assets/images/obaseki.jpg",                                       
+                                    Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: 
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      backgroundBlendMode: BlendMode.darken,
+                                      borderRadius: BorderRadius.circular(42),
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                          "assets/images/obaseki.jpg",                                       
+                                        ),
+                                        fit: BoxFit.fill,
+                                        alignment: Alignment.center
+                                      ),
+                                      color: Colors.grey[300]
                                     ),
-                                    fit: BoxFit.fill,
-                                    alignment: Alignment.center
+                                    // color: Colors.grey[300]
                                   ),
-                                  color: Colors.grey[300]
                                 ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'NIN Registration...',
-                                style: TextStyle(color:  Colors.indigo, fontWeight: FontWeight.bold, fontSize: 20),
-                              ),
-                            ),
+                                
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    'NIN Registration...',
+                                    style: TextStyle(color:  Colors.indigo, fontWeight: FontWeight.bold, fontSize: 20),
+                                  ),
+                                ),
                               ]
                             ),
                             

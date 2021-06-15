@@ -32,14 +32,15 @@ class JobSearchPage extends StatelessWidget {
       {Key key,
       // this.icon,
       // this.iconText,
-      this.title,
-      this.text,
-      this.caption,
+      this.title: 'Job Opportunities',
+      this.text: 'Search jobs',
+      this.caption: 'Apply',
       // this.widget,
-      this.text1,
-      this.text2,
-      this.text3,
-      this.text4})
+      this.text1 : 'Job Description',
+      this.text2: 'Job Requirement',
+      this.text3: 'Job Prerequisite',
+      this.text4: 'Apply'
+      })
       : super(key: key);
 
   @override
